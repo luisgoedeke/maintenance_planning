@@ -1,5 +1,7 @@
 #include <iostream>
 #include "header\machine.h"
+#include "header\company.h"
+#include "header\employee.h"
 
 int main(){
     machine m;

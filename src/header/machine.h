@@ -2,23 +2,31 @@
 #define MACHINE_H
 
 #include <string>
+#include "company.h"
 
-class machine
+class Machine
 {
-private:
-    int id;
+    protected:
+    std::string id;
     std::string name;
-    
-public:
-    machine(){
-    }
-    ~machine(){
-        std::cout<<"Ich wurde zerstoert"<<std::endl;
-    }
 
-    void print(){
-        std::cout<<"Ich bin eine Maschine"<<std::endl;
-    }
+    public:
+    Machine(std::string a, std::string b){}
+    ~Machine(){}
 };
+
+class stationary_machine : machine
+{
+    private:
+    std::string location;
+
+
+}
+
+class mobile_machine : machine
+{
+    private:
+    double weight;
+}
 
 #endif
