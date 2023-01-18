@@ -7,26 +7,28 @@
 class Machine
 {
     protected:
-    std::string id;
+    int id;
     std::string name;
 
     public:
-    Machine(std::string a, std::string b){}
+    Machine(){}
+    Machine(int a, std::string b){}
     ~Machine(){}
+    void print(){}
 };
 
-class stationary_machine : machine
+class Stationary_machine : Machine
 {
     private:
     std::string location;
 
 
-}
+};
 
-class mobile_machine : machine
+class Mobile_machine : Machine
 {
     private:
     double weight;
-}
+};
 
 #endif

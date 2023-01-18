@@ -14,6 +14,6 @@ class Interval
     void set_unit(char a){}
     int get_number(){}
     void set_number(int a){}
-}
+};
 
 #endif

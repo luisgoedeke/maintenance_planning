@@ -1,8 +1,8 @@
 #include <iostream>
 #include <string>
-#include <employee.h>
+#include "employee.h"
 
-Employee::Employee(std::string a, std::string b, std::string c){
+Employee::Employee(int a, std::string b, std::string c){
     this->id = a;
     this->name = b;
     this->qualification = c;
@@ -10,11 +10,11 @@ Employee::Employee(std::string a, std::string b, std::string c){
 
 Employee::~Employee(){}
 
-std::string Employee::get_id(){
+int Employee::get_id(){
     return this->id;
   }
 
-void Employee::set_id(std::string a){
+void Employee::set_id(int a){
     this->id = a;
   }
 

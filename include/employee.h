@@ -4,27 +4,26 @@
 #include <iostream>
 #include <string>
 
-
 class Employee
 {
   private:
 
-  std::string id;
+  int id;
   std::string name;
-  std::string qualification
+  std::string qualification;
 
   public:
 
-  Employee(std::string a, std::string b, std::string c){}
+  Employee(int a, std::string b, std::string c){}
   ~Employee(){}
-  std::string get_id(){}
-  void set_id(std::string) a){}
+  int get_id(){}
+  void set_id(int a){}
   std::string get_name(){}
   void set_name(std::string a){}
   std::string get_qualification(){}
   void set_qualification(std::string a){}
 
 
-}
+};
 
 #endif

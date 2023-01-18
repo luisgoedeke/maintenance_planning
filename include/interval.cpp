@@ -1,5 +1,5 @@
 #include <iostream>
-#include <interval.h>
+#include "interval.h"
 
 Interval::Interval(char a, int b){}
 Interval::~Interval(){}

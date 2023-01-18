@@ -10,6 +10,6 @@ class Company
   std::string id;
   std::string name;
    
-}
+};
 
 #endif
