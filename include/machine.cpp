@@ -6,7 +6,7 @@ Machine::Machine(){}
 
 Machine::Machine(int a, std::string b){
     this->id = a;
-    this->name = b
+    this->name = b;
 }
 Machine::~Machine(){}
 

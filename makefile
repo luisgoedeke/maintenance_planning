@@ -1,17 +1,11 @@
+output.o: main.o machine.o
+	g++ main.o machine.o -o output -std=c++17
 
 main.o: main.cpp
-	g++ -Wall main.cpp -o main -std=c++17
+	g++ -c main.cpp -std=c++17
 
-company.o: company.cpp company.h
-	g++ -Wall .\include\company.cpp -o main -std=c++17
-
-employee.o: employee.cpp employee.h
-	g++ -Wall .\include\employee.cpp -o main -std=c++17
-
-interval.o: inter
-	g++ -Wall .\include\interval.cpp -o main -std=c++17
-
-machine.o:
-	g++ -Wall .\include\machine.cpp -o main -std=c++17
+machine.o: ./include/machine.h ./include/machine.cpp
+	g++ -c ./include/machine.cpp -std=c++17
 
 clean:
+	rm *.o
