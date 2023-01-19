@@ -14,14 +14,14 @@ class Employee
 
   public:
 
-  Employee(int a, std::string b, std::string c){}
-  ~Employee(){}
-  int get_id(){}
-  void set_id(int a){}
-  std::string get_name(){}
-  void set_name(std::string a){}
-  std::string get_qualification(){}
-  void set_qualification(std::string a){}
+  Employee(int a, std::string b, std::string c);
+  ~Employee();
+  int get_id();
+  void set_id(int a);
+  std::string get_name();
+  void set_name(std::string a);
+  std::string get_qualification();
+  void set_qualification(std::string a);
 
 
 };
