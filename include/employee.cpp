@@ -2,10 +2,11 @@
 #include <string>
 #include "employee.h"
 
-Employee::Employee(int a, std::string b, std::string c){
+Employee::Employee(int a, std::string b, std::string c, std::string d){
     this->id = a;
-    this->name = b;
-    this->qualification = c;
+    this->first_name = b;
+    this->last_name = c;
+    this->qualification = d;
   }
 
 Employee::~Employee(){}
@@ -18,12 +19,20 @@ void Employee::set_id(int a){
     this->id = a;
   }
 
-std::string Employee::get_name(){
-    return this->name;
+std::string Employee::get_first_name(){
+    return this->first_name;
   }
 
-void Employee::set_name(std::string a){
-    this->name = a;
+void Employee::set_first_name(std::string a){
+    this->first_name = a;
+  }
+
+std::string Employee::get_last_name(){
+    return this->last_name;
+  }
+
+void Employee::set_last_name(std::string a){
+    this->last_name = a;
   }
 
 std::string Employee::get_qualification(){
