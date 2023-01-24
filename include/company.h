@@ -3,12 +3,35 @@
 
 #include <iostream>
 #include <string>
+#include <vector>
+
+#include "employee.h"
+#include "machine.h"
 
 class Company
 {
   private:
-  std::string id;
+
+  int id;
   std::string name;
+  std::vector<Employee*> employees;
+  std::vector<Machine*> machine;
+
+  public:
+
+  Company(int a, std::string b);
+  ~Company();
+
+  std::string get_id();
+  void set_id(int a);
+
+  std::vector<Employee*> get_employees();
+  void add_employee(Employee* a);
+  void delete_employee(int a);
+
+  std::vector<Machine*> get_machines();
+  void add_machine(Machine* a);
+  void delete_machine(int a);
    
 };
 

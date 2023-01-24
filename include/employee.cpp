@@ -42,3 +42,11 @@ std::string Employee::get_qualification(){
 void Employee::set_qualification(std::string a){
     this->qualification = a;
   }
+
+  int Employee::get_qualification_value(){
+    return this->qualification_value;
+  }
+
+  void Employee::set_qualification_value(int a){
+    this->qualification_value = a;
+  }

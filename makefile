@@ -1,7 +1,7 @@
 all: output.o clean
 
 output.o: main.o company.o employee.o interval.o machine.o maintenance_plan.o
-	g++ main.o machine.o -o output -std=c++17
+	g++ main.o company.o employee.o interval.o machine.o maintenance_plan.o -o output -std=c++17
 
 main.o: main.cpp
 	g++ -c main.cpp -std=c++17
