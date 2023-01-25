@@ -8,6 +8,8 @@
 #include "employee.h"
 #include "machine.h"
 
+class Machine;
+
 class Company
 {
   private:
@@ -15,7 +17,7 @@ class Company
   int id;
   std::string name;
   std::vector<Employee*> employees;
-  std::vector<Machine*> machine;
+  std::vector<Machine*> machines;
 
   public:
 

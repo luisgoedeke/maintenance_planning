@@ -1,8 +1,12 @@
 #ifndef MACHINE_H
 #define MACHINE_H
 
+#include <iostream>
 #include <string>
+
 #include "company.h"
+
+class Company;
 
 class Machine
 {
@@ -12,13 +16,22 @@ class Machine
     Company* company;
 
     public:
-    Machine();
     Machine(int a, std::string b, Company* c);
     ~Machine();
+    
+    int get_id();
+    void set_id(int a);
+
+    std::string get_name();
+    void set_name(std::string a);
+
+    Company* get_company();
+    void set_company(Company* a);
+
     void print();
 };
 
-class Stationary_machine : Machine
+class Stationary_machine:Machine
 {
     private:
     std::string location;
@@ -29,7 +42,7 @@ class Stationary_machine : Machine
 
 };
 
-class Mobile_machine : Machine
+class Mobile_machine:Machine
 {
     private:
     double weight;
