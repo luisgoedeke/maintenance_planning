@@ -1,16 +1,16 @@
 #include <iostream>
 #include <vector>
 
-#include "include\machine.h"
+#include "include\interval.h"
 #include "include\company.h"
 #include "include\employee.h"
-#include "include\interval.h"
+#include "include\machine.h"
 #include "include\maintenance_plan.h"
 
 int main(){
-    std::vector<Maintenance_plan*> plan;
+    std::vector<Company*> companies;
+    std::vector<Employee*> employees;
+    std::vector<Interval*> intverals;
 
-    Machine* m;
-    m->print();
-    return 0;
+
 }

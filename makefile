@@ -3,7 +3,7 @@ all: output.o clean
 output.o: main.o company.o employee.o interval.o machine.o maintenance_plan.o
 	g++ main.o company.o employee.o interval.o machine.o maintenance_plan.o -o output -std=c++17
 
-main.o: main.cpp
+main.o: main.cpp company.o employee.o interval.o machine.o
 	g++ -c main.cpp -std=c++17
 
 company.o: ./include/company.h ./include/company.cpp

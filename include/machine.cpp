@@ -1,8 +1,8 @@
 #include <iostream>
 #include <string>
-#include "machine.h"
 
-Machine::Machine(){}
+#include "company.h"
+#include "machine.h"
 
 Machine::Machine(int a, std::string b, Company* c){
     this->id = a;
@@ -10,6 +10,27 @@ Machine::Machine(int a, std::string b, Company* c){
     this->company = c;
 }
 Machine::~Machine(){}
+
+int Machine::get_id(){
+    return this->id;
+}
+void Machine::set_id(int a){
+    this->id = a;
+}
+
+std::string Machine::get_name(){
+    return this->name;
+}
+void Machine::set_name(std::string a){
+    this->name = a;
+}
+
+Company* Machine::get_company(){
+    return this->company;
+}
+void Machine::set_company(Company* a){
+    this->company = a;
+}
 
 void Machine::print(){
     std::cout<<"Ich bin eine Maschine"<<std::endl;
