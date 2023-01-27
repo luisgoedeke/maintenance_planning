@@ -8,6 +8,8 @@
 #include "include\machine.h"
 #include "include\maintenance_plan.h"
 
+void 
+
 int main(){
     std::vector<std::shared_ptr<Company>> companies;
     std::vector<std::shared_ptr<Employee>> employees;
