@@ -1,5 +1,7 @@
 #include <iostream>
+#include <memory>
 #include <string>
+
 #include "employee.h"
 
 Employee::Employee(int a, std::string b, std::string c, std::string d){

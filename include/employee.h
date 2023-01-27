@@ -2,6 +2,7 @@
 #define EMPLOYEE_H
 
 #include <iostream>
+#include <memory>
 #include <string>
 
 class Employee

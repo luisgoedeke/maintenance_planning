@@ -1,7 +1,11 @@
 #include <iostream>
+
 #include "interval.h"
 
-Interval::Interval(char a, int b){}
+Interval::Interval(char a, int b){
+    this->unit = a;
+    this->number = b;
+}
 Interval::~Interval(){}
 
 char Interval::get_unit(){

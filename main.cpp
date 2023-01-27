@@ -1,4 +1,5 @@
 #include <iostream>
+#include <memory>
 #include <vector>
 
 #include "include\interval.h"
@@ -8,9 +9,23 @@
 #include "include\maintenance_plan.h"
 
 int main(){
-    std::vector<Company*> companies;
-    std::vector<Employee*> employees;
-    std::vector<Interval*> intverals;
+    std::vector<std::shared_ptr<Company>> companies;
+    std::vector<std::shared_ptr<Employee>> employees;
+    std::vector<std::shared_ptr<Interval>> intervals;
+
+    auto y = std::make_shared<Interval>('x',10);
+
+    intervals.push_back(y);
+
+    std::cout<<y.use_count() <<std::endl;
+
+    intervals.erase(intervals.begin());
+
+    std::cout<<y.use_count() <<std::endl;
+
+
+
+
 
 
 }

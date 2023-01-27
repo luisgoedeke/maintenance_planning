@@ -2,6 +2,7 @@
 #define COMPANY_H
 
 #include <iostream>
+#include <memory>
 #include <string>
 #include <vector>
 
@@ -16,8 +17,8 @@ class Company
 
   int id;
   std::string name;
-  std::vector<Employee*> employees;
-  std::vector<Machine*> machines;
+  std::vector<std::shared_ptr<Employee>> employees;
+  std::vector<std::shared_ptr<Machine>> machines;
 
   public:
 
@@ -27,12 +28,12 @@ class Company
   std::string get_id();
   void set_id(int a);
 
-  std::vector<Employee*> get_employees();
-  void add_employee(Employee* a);
+  std::vector<std::shared_ptr<Employee>> get_employees();
+  void add_employee(std::shared_ptr<Employee> a);
   void delete_employee(int a);
 
-  std::vector<Machine*> get_machines();
-  void add_machine(Machine* a);
+  std::vector<std::shared_ptr<Machine>> get_machines();
+  void add_machine(std::shared_ptr<Machine> a);
   void delete_machine(int a);
    
 };

@@ -1,10 +1,11 @@
 #include <iostream>
+#include <memory>
 #include <string>
 
 #include "company.h"
 #include "machine.h"
 
-Machine::Machine(int a, std::string b, Company* c){
+Machine::Machine(int a, std::string b, std::shared_ptr<Company> c){
     this->id = a;
     this->name = b;
     this->company = c;
@@ -25,10 +26,10 @@ void Machine::set_name(std::string a){
     this->name = a;
 }
 
-Company* Machine::get_company(){
+std::shared_ptr<Company> Machine::get_company(){
     return this->company;
 }
-void Machine::set_company(Company* a){
+void Machine::set_company(std::shared_ptr<Company> a){
     this->company = a;
 }
 
@@ -36,15 +37,13 @@ void Machine::print(){
     std::cout<<"Ich bin eine Maschine"<<std::endl;
 }
 
-Stationary_machine::Stationary_machine(int a, std::string b, Company* c, std::string d){
-    Machine(a, b, c);
+Stationary_machine::Stationary_machine(int a, std::string b, std::shared_ptr<Company> c, std::string d) : Machine (a,b,c){
     this->location = d;
 }
 
 Stationary_machine::~Stationary_machine(){}
 
-Mobile_machine::Mobile_machine(int a, std::string b, Company* c, double d){
-    Machine(a, b, c);
+Mobile_machine::Mobile_machine(int a, std::string b, std::shared_ptr<Company> c, double d) : Machine(a,b,c){
     this->weight = d;
 }
 
