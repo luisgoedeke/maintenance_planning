@@ -124,6 +124,8 @@ void menu_delete (std::vector<std::shared_ptr<Company>> &companies, std::vector<
 
         if(auswahl == 1){
 
+            delete_company(companies);
+
         }else if(auswahl == 2){
 
             delete_employee(employees);
@@ -183,7 +185,8 @@ void menu_show (std::vector<std::shared_ptr<Company>> &companies, std::vector<st
             
         }else if (auswahl == 4){
 
-            show_machines(stationary_machines, mobile_machines);
+            show_stationary_machines(stationary_machines);
+            show_mobile_machines(mobile_machines);
 
         }
         else if (auswahl == 5){

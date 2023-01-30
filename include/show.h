@@ -15,4 +15,6 @@ void show_employees (std::vector<std::shared_ptr<Employee>> &employees);
 
 void show_companies (std::vector<std::shared_ptr<Company>> &companies);
 
-void show_machines (std::vector<std::shared_ptr<Stationary_machine>> &stationary_machines, std::vector<std::shared_ptr<Mobile_machine>> &mobile_machines);
+void show_stationary_machines (std::vector<std::shared_ptr<Stationary_machine>> &stationary_machines);
+
+void show_mobile_machines (std::vector<std::shared_ptr<Mobile_machine>> &mobile_machines);

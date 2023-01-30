@@ -10,6 +10,7 @@
 #include "interval.h"
 #include "machine.h"
 #include "maintenance_plan.h"
+#include "show.h"
 
 void edit_interval (std::vector<std::shared_ptr<Interval>> &intervals){
 
@@ -242,4 +243,108 @@ void edit_companies (std::vector<std::shared_ptr<Company>> &companies, std::vect
 
 }
 
-void edit_machines (std::vector<std::shared_ptr<Company>> &companies, std::vector<std::shared_ptr<Machine>> &machines){}
+void edit_machines (std::vector<std::shared_ptr<Company>> &companies, std::vector<std::shared_ptr<Stationary_machine>> &stationary_machines, std::vector<std::shared_ptr<Mobile_machine>> &mobile_machines){
+    
+    int position;
+    int auswahl;
+    bool stop_edit = false;
+
+    int id;
+    std::string name;
+    std::shared_ptr<Company> company;
+    std::string location;
+    double weight;
+
+    while (!stop_edit){
+
+        std::cout << "Welche Art von Maschinen moechten Sie editieren?" << std::endl;
+        std::cout << "1 Stationaere Maschinen" << std::endl;
+        std::cout << "2 Mobile Maschinen" << std::endl;
+        std::cout << "3 Abbrechen" << std::endl;
+
+        std::cin >> auswahl;
+
+        if (auswahl == 1){
+            show_stationary_machines(stationary_machines);
+            std::cout << "Bitte geben Sie die Nummer der Maschine ein, die bearbeitet werden soll:" << std::endl;
+            std::cin >> position;
+            std::cout << "Was möchten Sie an der Maschine bearbeiten?" << std::endl;
+            std::cout << "1 ID" << std::endl;
+            std::cout << "2 Name" << std::endl;
+            std::cout << "3 Firma" << std::endl;
+            std::cout << "4 Ort" << std::endl;
+            std::cout << "5 Abbruch" << std::endl;
+
+            std::cin >> auswahl;
+
+            if(auswahl== 1){
+                std::cout << "Bitte geben Sie eine neue ID ein:"<< std::endl;
+                std::cin >> id;
+                stationary_machines[position]->set_id(id);
+            }else if(auswahl== 2){
+                std::cout << "Bitte geben Sie einen neuen Namen ein:"<< std::endl;
+                std::cin >> name;
+                stationary_machines[position]->set_name(name);
+            }else if(auswahl== 3){
+                show_companies(companies);
+                std::cout << "Bitte geben Sie die Nummer der Firma ein:"<< std::endl;
+                int pos_comp;
+                std::cin >> pos_comp;
+                company = companies[pos_comp];
+                stationary_machines[position]->set_company(company);
+            }else if (auswahl == 4){
+                std::cout << "Bitte geben Sie einen neuen Ort ein:"<< std::endl;
+                std::cin >> location;
+                stationary_machines[position]->set_location(location);
+
+            }else if (auswahl == 5){
+                stop_edit = true;
+                break;
+            }
+
+
+        }else if (auswahl == 2){
+            show_mobile_machines(mobile_machines);
+            std::cout << "Bitte geben Sie die Nummer der Maschine ein, die bearbeitet werden soll:" << std::endl;
+            std::cin >> position;
+            std::cout << "Was möchten Sie an der Maschine bearbeiten?" << std::endl;
+            std::cout << "1 ID" << std::endl;
+            std::cout << "2 Name" << std::endl;
+            std::cout << "3 Firma" << std::endl;
+            std::cout << "4 Gewicht" << std::endl;
+            std::cout << "5 Abbruch" << std::endl;
+
+            std::cin >> auswahl;
+
+            if(auswahl== 1){
+                std::cout << "Bitte geben Sie eine neue ID ein:" << std::endl;
+                std::cin >> id;
+                mobile_machines[position]->set_id(id);
+            }else if(auswahl== 2){
+                std::cout << "Bitte geben Sie einen neuen Namen ein:"<< std::endl;
+                std::cin >> name;
+                mobile_machines[position]->set_name(name);
+            }else if(auswahl== 3){
+                show_companies(companies);
+                std::cout << "Bitte geben Sie die Nummer der Firma ein:" <<std::endl;
+                int pos_comp;
+                std::cin >> pos_comp;
+                company = companies[pos_comp];
+                mobile_machines[position]->set_company(company);
+            }else if (auswahl == 4){
+                std::cout << "Bitte geben Sie einen neues Gewicht ein:" << std::endl;
+                std::cin >> weight;
+                mobile_machines[position]->set_weight(weight);
+
+            }else if (auswahl == 5){
+                stop_edit = true;
+                break;
+            }
+
+        }else if (auswahl == 3){
+            stop_edit = true;
+            break;
+        }
+
+    }
+}

@@ -133,6 +133,7 @@ void write_file_maintenance_plan(std::vector<std::shared_ptr<Maintenance_plan>> 
         Ausgabe << s->get_stationary_machine()->get_id() << ";" <<  s->get_stationary_machine()->get_name() <<";" << s->get_stationary_machine()->get_company() << ";" <<s->get_stationary_machine()->get_location() << ";" <<std::endl;
       }else{
         Ausgabe << "ID;Name;Firma;Gewicht;" << std::endl;
+        Ausgabe << s->get_mobile_machine()->get_id() << ";" <<  s->get_mobile_machine()->get_name() <<";" << s->get_mobile_machine()->get_company() << ";" <<s->get_mobile_machine()->get_weight() << ";" <<std::endl;
 
       }
       

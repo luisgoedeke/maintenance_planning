@@ -57,12 +57,26 @@ void show_companies (std::vector<std::shared_ptr<Company>> &companies){
 
 }
 
-void show_machines (std::vector<std::shared_ptr<Stationary_machine>> &stationary_machines, std::vector<std::shared_ptr<Mobile_machine>> &mobile_machines){
+void show_stationary_machines (std::vector<std::shared_ptr<Stationary_machine>> &stationary_machines){
         int counter = 0;
 
     for (const auto& s : stationary_machines){ 
 
             std::cout << counter << ": " << "ID: " << s->get_id() << "; Name: " << s->get_name() << "; Ort:" << s->get_location() << "; Name Firma: " << (s->get_company())->get_name()<< "; ID Firma: " << (s->get_company())->get_id() <<std::endl;
+            counter++;
+
+
+        counter++;
+    }
+
+}
+
+void show_mobile_machines (std::vector<std::shared_ptr<Mobile_machine>> &mobile_machines){
+        int counter = 0;
+
+    for (const auto& s : mobile_machines){ 
+
+            std::cout << counter << ": " << "ID: " << s->get_id() << "; Name: " << s->get_name() << "; Gewicht:" << s->get_weight() << "; Name Firma: " << (s->get_company())->get_name()<< "; ID Firma: " << (s->get_company())->get_id() <<std::endl;
             counter++;
 
 
