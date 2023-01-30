@@ -1,7 +1,7 @@
 all: output.o clean
 
-output.o: main.o company.o employee.o interval.o machine.o maintenance_plan.o menu.o add.o delete.o edit.o show.o 
-	g++ main.o company.o employee.o interval.o machine.o maintenance_plan.o menu.o add.o delete.o edit.o show.o -o output -std=c++17
+output.o: main.o company.o employee.o interval.o machine.o maintenance_plan.o menu.o add.o delete.o edit.o show.o write_file.o
+	g++ main.o company.o employee.o interval.o machine.o maintenance_plan.o menu.o add.o delete.o edit.o show.o write_file.o -o output -std=c++17
 
 main.o: main.cpp company.o employee.o interval.o machine.o menu.o
 	g++ -c main.cpp -std=c++17
@@ -36,5 +36,8 @@ edit.o: ./include/edit.h ./include/edit.cpp
 show.o: ./include/show.h ./include/show.cpp
 	g++ -c ./include/show.cpp -std=c++17
 
+write_file.o: ./include/write_file.h ./include/write_file.cpp
+	g++ -c ./include/write_file.cpp -std=c++17
+
 clean:
-	del main.o company.o employee.o interval.o machine.o maintenance_plan.o menu.o add.o edit.o delete.o
+	del main.o company.o employee.o interval.o machine.o maintenance_plan.o menu.o add.o edit.o delete.o write_file.o

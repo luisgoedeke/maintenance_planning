@@ -13,6 +13,7 @@
 #include "maintenance_plan.h"
 #include "menu.h"
 #include "show.h"
+#include "write_file.h"
 
 void menu_add (std::vector<std::shared_ptr<Company>> &companies, std::vector<std::shared_ptr<Employee>> &employees, std::vector<std::shared_ptr<Interval>> &intervals, std::vector<std::shared_ptr<Machine>> &machines, std::vector<std::shared_ptr<Maintenance_plan>> &m_plans){
     bool menu_active = true;
@@ -217,6 +218,8 @@ void menu_main(std::vector<std::shared_ptr<Company>> &companies, std::vector<std
         if(auswahl == 1){
 
         }else if(auswahl == 2){
+
+            write_file_interval(intervals);
             
         }else if (auswahl == 3){
 

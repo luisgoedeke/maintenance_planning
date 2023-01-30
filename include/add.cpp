@@ -70,7 +70,6 @@ void add_interval (std::vector<std::shared_ptr<Interval>> &intervals){
 
         }
 
-
     }
 
 }

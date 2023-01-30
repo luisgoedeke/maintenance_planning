@@ -9,10 +9,9 @@
 #include "interval.h"
 #include "machine.h"
 #include "maintenance_plan.h"
-
 #include "write_file.h"
 
-write_file_interval(std::vector<std::shared_ptr<Interval>> intervals)
+void write_file_interval(std::vector<std::shared_ptr<Interval>> intervals)
 {
   std::ofstream Ausgabe;
   Ausgabe.open("Interval.txt");
@@ -28,7 +27,7 @@ write_file_interval(std::vector<std::shared_ptr<Interval>> intervals)
   }
 }
 
-write_file_employee(std::vector<std::shared_ptr<Employee>> employees)
+void write_file_employee(std::vector<std::shared_ptr<Employee>> employees)
 {
   std::ofstream Ausgabe;
   Ausgabe.open("Mitarbeiter.txt");
@@ -44,7 +43,7 @@ write_file_employee(std::vector<std::shared_ptr<Employee>> employees)
   }
 }
 
-write_file_company(std::vector<std::shared_ptr<Company>> companies)
+void write_file_company(std::vector<std::shared_ptr<Company>> companies)
 {
   std::ofstream Ausgabe;
   Ausgabe.open("Firma.txt");
@@ -76,7 +75,7 @@ write_file_company(std::vector<std::shared_ptr<Company>> companies)
   }
 }
 
-write_file_machine(std::vector<std::shared_ptr<Machine>> machines)
+void write_file_machine(std::vector<std::shared_ptr<Machine>> machines)
 {
   std::ofstream Ausgabe;
   Ausgabe.open("Maschine.txt");
@@ -92,7 +91,7 @@ write_file_machine(std::vector<std::shared_ptr<Machine>> machines)
   }
 }
 
-write_file_maintenance_plan(std::vector<std::shared_ptr<Maintenance_plan>> maintenance_plans)
+void write_file_maintenance_plan(std::vector<std::shared_ptr<Maintenance_plan>> maintenance_plans)
 {
   std::ofstream Ausgabe;
   Ausgabe.open("Wartungsplan.txt");
@@ -106,7 +105,7 @@ write_file_maintenance_plan(std::vector<std::shared_ptr<Maintenance_plan>> maint
 
       Ausgabe << "Maschine:" << std::endl;
       Ausgabe << "ID;Name;Firma;" << std::endl;
-      Ausgabe << s->getmachine()->get_id() << ";" <<  s->getmachine()->get_name() <<";" << s->getmachine()->get_company() << ";" <<std::endl;
+      Ausgabe << s->get_machine()->get_id() << ";" <<  s->get_machine()->get_name() <<";" << s->get_machine()->get_company() << ";" <<std::endl;
       Ausgabe << "Intervall:" << std::endl;
       Ausgabe << "Einheit;Anzahl;" << std::endl;
       Ausgabe << s->get_interval()->get_unit() << ";" << s->get_interval()->get_number() <<";" << std::endl;
