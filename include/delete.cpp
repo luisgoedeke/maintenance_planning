@@ -42,3 +42,19 @@ void delete_employee (std::vector<std::shared_ptr<Employee>> &employees){
 
 
 }
+
+void delete_company (std::vector<std::shared_ptr<Company>> &companies){
+
+    int position;
+
+    show_companies(companies);
+    std::cout << "Bitte geben Sie die Nummer der Firma ein, dass geloescht werden soll:" << std::endl;
+
+    std::cin >> position;
+
+    if (position < companies.size()+1){
+        companies.erase(companies.begin()+position);
+    }
+
+
+}

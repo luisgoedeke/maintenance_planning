@@ -18,7 +18,8 @@ class Company
   int id;
   std::string name;
   std::vector<std::shared_ptr<Employee>> employees;
-  std::vector<std::shared_ptr<Machine>> machines;
+  std::vector<std::shared_ptr<Stationary_machine>> stationary_machines;
+  std::vector<std::shared_ptr<Mobile_machine>> mobile_machines;
 
   public:
 
@@ -35,9 +36,13 @@ class Company
   void add_employee(std::shared_ptr<Employee> a);
   void delete_employee(int a);
 
-  std::vector<std::shared_ptr<Machine>> get_machines();
-  void add_machine(std::shared_ptr<Machine> a);
-  void delete_machine(int a);
+  std::vector<std::shared_ptr<Stationary_machine>> get_stationary_machines();
+  void add_stationary_machine(std::shared_ptr<Stationary_machine> a);
+  void delete_stationary_machine(int a);
+
+  std::vector<std::shared_ptr<Mobile_machine>> get_mobile_machines();
+  void add_mobile_machine(std::shared_ptr<Mobile_machine> a);
+  void delete_mobile_machine(int a);
    
 };
 

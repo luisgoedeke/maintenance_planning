@@ -18,7 +18,9 @@ void write_file_employee(std::vector<std::shared_ptr<Employee>> employees);
 
 void write_file_company(std::vector<std::shared_ptr<Company>> companies);
 
-void write_file_machine(std::vector<std::shared_ptr<Machine>> machines);
+void write_file_stationary_machine(std::vector<std::shared_ptr<Stationary_machine>> stationary_machines);
+
+void write_file_stationary_machine(std::vector<std::shared_ptr<Mobile_machine>> mobile_machines);
 
 void write_file_maintenance_plan(std::vector<std::shared_ptr<Maintenance_plan>> maintenance_plans);
 

@@ -63,29 +63,53 @@ void write_file_company(std::vector<std::shared_ptr<Company>> companies)
           Ausgabe << e->get_last_name() << ";" <<  e->get_first_name() <<";" << e->get_qualification() << "; " << e->get_id() <<";"<<std::endl;
         }
 
-        std::vector<std::shared_ptr<Machine>> machines = s->get_machines();
-        Ausgabe << "Firmenmaschinen:" << std::endl;
-        Ausgabe << "ID;Name;Firma;" << std::endl;
-        for (const auto& m : machines)
+        std::vector<std::shared_ptr<Stationary_machine>> stationary_machines = s->get_stationary_machines();
+        Ausgabe << "Stationaere Firmenmaschinen:" << std::endl;
+        Ausgabe << "ID;Name;Firma;Ort;" << std::endl;
+        for (const auto& m : stationary_machines)
         {
-            Ausgabe << m->get_id() << ";" <<  m->get_name() <<";" << m->get_company() << ";" <<std::endl;
+            Ausgabe << m->get_id() << ";" <<  m->get_name() <<";" << m->get_company() << ";" << m->get_location() << ";" <<std::endl;
+        }
+
+        std::vector<std::shared_ptr<Mobile_machine>> mobile_machines = s->get_mobile_machines();
+        Ausgabe << "Mobile Firmenmaschinen:" << std::endl;
+        Ausgabe << "ID;Name;Firma;Gewicht;" << std::endl;
+        for (const auto& m : mobile_machines)
+        {
+            Ausgabe << m->get_id() << ";" <<  m->get_name() <<";" << m->get_company() << ";" << m->get_weight() << ";" <<std::endl;
         }
     }
   Ausgabe.close();
   }
 }
 
-void write_file_machine(std::vector<std::shared_ptr<Machine>> machines)
+void write_file_stationary_machine(std::vector<std::shared_ptr<Stationary_machine>> stationary_machines)
 {
   std::ofstream Ausgabe;
-  Ausgabe.open("Maschine.txt");
+  Ausgabe.open("Stationaere_Maschine.txt");
   if(Ausgabe)
   {
     Ausgabe << "Maschinen:" << std::endl;
-    Ausgabe << "ID;Name;Firma;" << std::endl;
-    for (const auto& s : machines)
+    Ausgabe << "ID;Name;Firma;Ort;" << std::endl;
+    for (const auto& s : stationary_machines)
     {
-        Ausgabe << s->get_id() << ";" <<  s->get_name() <<";" << s->get_company() << ";" <<std::endl;
+        Ausgabe << s->get_id() << ";" <<  s->get_name() <<";" << s->get_company() << ";" << s->get_location() << ";" <<std::endl;
+    }
+  Ausgabe.close();
+  }
+}
+
+void write_file_mobile_machine(std::vector<std::shared_ptr<Mobile_machine>> mobile_machines)
+{
+  std::ofstream Ausgabe;
+  Ausgabe.open("Bewegliche_Maschine.txt");
+  if(Ausgabe)
+  {
+    Ausgabe << "Maschinen:" << std::endl;
+    Ausgabe << "ID;Name;Firma;Gewicht;" << std::endl;
+    for (const auto& s : mobile_machines)
+    {
+        Ausgabe << s->get_id() << ";" <<  s->get_name() <<";" << s->get_company() << ";" << s->get_weight() << ";" <<std::endl;
     }
   Ausgabe.close();
   }
@@ -104,8 +128,14 @@ void write_file_maintenance_plan(std::vector<std::shared_ptr<Maintenance_plan>> 
       Ausgabe << s->get_id() << ";" <<  s->get_name() <<";" << s->get_required_qualification() << ";" << s->get_required_qualification_value() << ";" << std::endl;
 
       Ausgabe << "Maschine:" << std::endl;
-      Ausgabe << "ID;Name;Firma;" << std::endl;
-      Ausgabe << s->get_machine()->get_id() << ";" <<  s->get_machine()->get_name() <<";" << s->get_machine()->get_company() << ";" <<std::endl;
+      if (s->get_stationary()){
+        Ausgabe << "ID;Name;Firma;Ort;" << std::endl;
+        Ausgabe << s->get_stationary_machine()->get_id() << ";" <<  s->get_stationary_machine()->get_name() <<";" << s->get_stationary_machine()->get_company() << ";" <<s->get_stationary_machine()->get_location() << ";" <<std::endl;
+      }else{
+        Ausgabe << "ID;Name;Firma;Gewicht;" << std::endl;
+
+      }
+      
       Ausgabe << "Intervall:" << std::endl;
       Ausgabe << "Einheit;Anzahl;" << std::endl;
       Ausgabe << s->get_interval()->get_unit() << ";" << s->get_interval()->get_number() <<";" << std::endl;

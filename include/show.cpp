@@ -31,3 +31,42 @@ void show_employees (std::vector<std::shared_ptr<Employee>> &employees){
         counter++;
     }
 }
+
+void show_companies (std::vector<std::shared_ptr<Company>> &companies){
+    
+    int counter = 0;
+
+    for (const auto& s : companies){ 
+
+        std::cout << counter << ": " << "Name: " << s->get_name() << "ID: " << s->get_id() <<std::endl;
+        std::vector<std::shared_ptr<Employee>> employees = s->get_employees();
+        //std::vector<std::shared_ptr<Stationary_Machine>> stationary_machines = s->get_stationary_machines();
+        //std::vector<std::shared_ptr<Mobile_Machine>> stationary_machines = s->get_mobile_machines();
+
+        std::cout << "Mitarbeiter:" << std::endl;
+
+        for (const auto& t : employees){ 
+
+        std::cout << "Nachname: " << t->get_last_name() << "; Vorname: " << t->get_first_name() <<"; " << "Qualifikation: " << t->get_qualification() << "; " << "ID: " << t->get_id() <<std::endl;
+        }
+
+        std::cout << "Maschinen:" << std::endl;
+
+        counter++;
+    }
+
+}
+
+void show_machines (std::vector<std::shared_ptr<Stationary_machine>> &stationary_machines, std::vector<std::shared_ptr<Mobile_machine>> &mobile_machines){
+        int counter = 0;
+
+    for (const auto& s : stationary_machines){ 
+
+            std::cout << counter << ": " << "ID: " << s->get_id() << "; Name: " << s->get_name() << "; Ort:" << s->get_location() << "; Name Firma: " << (s->get_company())->get_name()<< "; ID Firma: " << (s->get_company())->get_id() <<std::endl;
+            counter++;
+
+
+        counter++;
+    }
+
+}

@@ -166,3 +166,80 @@ void edit_employees (std::vector<std::shared_ptr<Employee>> &employees){
         }
     }
 }
+
+void edit_companies (std::vector<std::shared_ptr<Company>> &companies, std::vector<std::shared_ptr<Employee>> &employees, std::vector<std::shared_ptr<Stationary_machine>> &stationary_machines, std::vector<std::shared_ptr<Mobile_machine>> &mobile_machines){
+
+    int position;
+    int auswahl;
+    bool stop_edit = false;
+
+    int id;
+    std::string name;
+
+    while(!stop_edit){
+        show_companies(companies);
+        std::cout << "Bitte geben Sie die Nummer der Firma ein, die bearbeitet werden soll:" << std::endl;
+
+        std::cin >> position;
+
+        std::cout << "Was moechten Sie von dieser Firma bearbeiten?" <<std::endl;
+        std::cout << "1 ID" << std::endl;
+        std::cout << "2 Name" << std::endl;
+        std::cout << "3 Mitarbeiter" << std::endl;
+        std::cout << "4 Maschinen" << std::endl;
+        std::cout << "5 Abbruch" << std::endl;
+
+        std::cin >> auswahl;
+
+        if (auswahl == 1){
+            std::cout << "Bitte geben Sie eine neue ID ein:" << std::endl;
+            std::cin >> id;
+            companies[position]->set_id(id);
+
+
+        }else if(auswahl == 2){
+            std::cout << "Was soll der neue Name lauten?" << std::endl;
+            std::cin >> name;
+            companies[position]->set_name(name);
+
+        }else if (auswahl == 3){
+            std::cout << "Was möchten Sie tun?" <<std::endl;
+            std::cout << "1 Mitarbeiter hinzufügen" << std::endl;
+            std::cout << "2 Mitarbeiter löschen" << std::endl;
+            std::cout << "3 Abbrechen" << std::endl;
+
+            std::cin >> auswahl;
+
+            if (auswahl == 1){
+                show_employees(employees);
+                std::cout << "Bitte geben Sie die Nummer des Mitarbeiters ein, der hinzugefügt werden soll:" << std::endl;
+                int pos_empl;
+                std::cin >> pos_empl;
+
+                std::shared_ptr<Employee> tmp = employees[pos_empl];
+
+                companies[position]->add_employee(tmp); 
+
+            }else if (auswahl == 2){
+                std::vector<std::shared_ptr<Employee>> tmp_employees = companies[position]->get_employees();
+                show_employees(tmp_employees);
+                std::cout << "Bitte geben Sie die Nummer des Mitarbeiters ein, der gelöscht werden soll:" << std::endl;
+                int pos_empl;
+                std::cin >> pos_empl;
+                companies[position]->delete_employee(pos_empl);
+            }else if (auswahl == 3){
+                stop_edit = true;
+                break;
+            }
+
+        }else if(auswahl == 4){
+   
+        }else if (auswahl == 5){
+            stop_edit = true;
+            break;
+        }
+    }
+
+}
+
+void edit_machines (std::vector<std::shared_ptr<Company>> &companies, std::vector<std::shared_ptr<Machine>> &machines){}

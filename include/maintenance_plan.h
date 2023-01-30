@@ -16,16 +16,19 @@ class Maintenance_plan{
 
     int id;
     std::string name;
-    std::shared_ptr<Machine> machine;
+    std::shared_ptr<Stationary_machine> stationary_machine;
+    std::shared_ptr<Mobile_machine> mobile_machine;
     std::shared_ptr<Interval> interval;
     std::string required_qualification;
     int required_qualification_value;
     std::shared_ptr<Employee> employee;
+    bool stationary;
 
 
     public:
     
-    Maintenance_plan(int a, std::string b, std::shared_ptr<Machine> c, std::shared_ptr<Interval> d, std::string e, int f, std::shared_ptr<Employee> g);
+    Maintenance_plan(int a, std::string b, std::shared_ptr<Stationary_machine> c, std::shared_ptr<Interval> d, std::string e, int f, std::shared_ptr<Employee> g);
+    Maintenance_plan(int a, std::string b, std::shared_ptr<Mobile_machine> c, std::shared_ptr<Interval> d, std::string e, int f, std::shared_ptr<Employee> g);
     ~Maintenance_plan();
 
     int get_id();
@@ -34,8 +37,13 @@ class Maintenance_plan{
     std::string get_name();
     void set_name(std::string a);
 
-    std::shared_ptr<Machine> get_machine();
-    void set_machine(std::shared_ptr<Machine> a);
+    bool get_stationary();
+
+    std::shared_ptr<Stationary_machine> get_stationary_machine();
+    void set_stationary_machine(std::shared_ptr<Stationary_machine> a);
+
+    std::shared_ptr<Mobile_machine> get_mobile_machine();
+    void set_mobile_machine(std::shared_ptr<Mobile_machine> a);
 
     std::shared_ptr<Interval> get_interval();
     void set_interval(std::shared_ptr<Interval> a);

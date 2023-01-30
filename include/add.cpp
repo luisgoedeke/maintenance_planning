@@ -160,10 +160,72 @@ void add_company (std::vector<std::shared_ptr<Company>> &companies){
 
         }
 
-        std::cout << "Möchten Sie eine weitere Firma anlegen? 0 für Abbruch" << std::endl;
+        std::cout << "Moechten Sie eine weitere Firma anlegen? 1 Zum Fortfahren, 0 fuer Abbruch" << std::endl;
         int auswahl;
         std::cin >>auswahl;
         if (auswahl == 0){
+            menu_active = false;
+        }
+    }
+}
+
+void add_machine (std::vector<std::shared_ptr<Company>> &companies, std::vector<std::shared_ptr<Stationary_machine>> &stationary_machines, std::vector<std::shared_ptr<Mobile_machine>> &mobile_machines){
+    bool menu_active = true;
+    while (menu_active){
+        std::cout << "Was für einen Typ Maschine moechten Sie anlegen?" << std::endl;
+        std::cout << "1 Stationaere Maschine" << std::endl;
+        std::cout << "2 Mobile Maschine" << std::endl;
+        std::cout << "3 Abbruch" << std::endl;
+
+        int auswahl;
+        std::cin >> auswahl;
+
+        int id;
+        std::string name;
+        std::shared_ptr<Company> company;
+        std::string location;
+        double weight;
+
+        if (auswahl == 1){
+            std::cout << "Bitte geben Sie eine ID für die Maschine ein:" << std::endl;
+            std::cin >> id;
+
+            std::cout << "Bitte geben Sie einen Namen für die Maschine ein:" << std::endl;
+            std::cin >> name;
+
+            show_companies(companies);
+
+            std::cout << "Bitte geben Sie die Nummer einer Firma an:" << std::endl;
+            int nr;
+            std::cin >> nr;
+            company = companies[nr];
+
+            std::cout << "Bitte geben Sie den Standort der Maschine an:" << std::endl;
+            std::cin >> location;
+
+            stationary_machines.push_back(std::make_shared<Stationary_machine>(id, name, company, location));
+        
+        }else if (auswahl == 2){
+
+            std::cout << "Bitte geben Sie eine ID für die Maschine ein:" << std::endl;
+            std::cin >> id;
+
+            std::cout << "Bitte geben Sie einen Namen für die Maschine ein:" << std::endl;
+            std::cin >> name;
+
+            show_companies(companies);
+
+            std::cout << "Bitte geben Sie die Nummer einer Firma an:" << std::endl;
+            int nr;
+            std::cin >> nr;
+            company = companies[nr];
+
+            std::cout << "Bitte geben Sie das Gewicht der Maschine an:" << std::endl;
+            std::cin >> weight;
+
+            mobile_machines.push_back(std::make_shared<Mobile_machine>(id, name, company, weight));
+
+        }else{
             menu_active = false;
         }
     }

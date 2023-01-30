@@ -17,10 +17,11 @@ int main(){
     std::vector<std::shared_ptr<Company>> companies;
     std::vector<std::shared_ptr<Employee>> employees;
     std::vector<std::shared_ptr<Interval>> intervals;
-    std::vector<std::shared_ptr<Machine>> machines;
+    std::vector<std::shared_ptr<Stationary_machine>> stationary_machines;
+    std::vector<std::shared_ptr<Mobile_machine>> mobile_machines;
     std::vector<std::shared_ptr<Maintenance_plan>> m_plans;
-
-    menu_main(companies, employees, intervals, machines, m_plans);
+ 
+    menu_main(companies, employees, intervals, stationary_machines, mobile_machines, m_plans);
 /*
 
     auto y = std::make_shared<Interval>('x',10);

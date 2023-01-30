@@ -16,3 +16,5 @@ void add_interval (std::vector<std::shared_ptr<Interval>> &intervals);
 void add_employee (std::vector<std::shared_ptr<Employee>> &employees);
 
 void add_company (std::vector<std::shared_ptr<Company>> &companies);
+
+void add_machine (std::vector<std::shared_ptr<Company>> &companies, std::vector<std::shared_ptr<Stationary_machine>> &stationary_machines, std::vector<std::shared_ptr<Mobile_machine>> &mobile_machines);

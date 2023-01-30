@@ -15,7 +15,7 @@
 #include "show.h"
 #include "write_file.h"
 
-void menu_add (std::vector<std::shared_ptr<Company>> &companies, std::vector<std::shared_ptr<Employee>> &employees, std::vector<std::shared_ptr<Interval>> &intervals, std::vector<std::shared_ptr<Machine>> &machines, std::vector<std::shared_ptr<Maintenance_plan>> &m_plans){
+void menu_add (std::vector<std::shared_ptr<Company>> &companies, std::vector<std::shared_ptr<Employee>> &employees, std::vector<std::shared_ptr<Interval>> &intervals, std::vector<std::shared_ptr<Stationary_machine>> stationary_machines, std::vector<std::shared_ptr<Mobile_machine>> mobile_machines, std::vector<std::shared_ptr<Maintenance_plan>> &m_plans){
     bool menu_active = true;
     
     while (menu_active){
@@ -46,6 +46,8 @@ void menu_add (std::vector<std::shared_ptr<Company>> &companies, std::vector<std
 
         }else if (auswahl == 4){
 
+            add_machine(companies, stationary_machines, mobile_machines);
+
         }
         else if (auswahl == 5){
 
@@ -60,7 +62,7 @@ void menu_add (std::vector<std::shared_ptr<Company>> &companies, std::vector<std
     }
 }
 
-void menu_edit (std::vector<std::shared_ptr<Company>> &companies, std::vector<std::shared_ptr<Employee>> &employees, std::vector<std::shared_ptr<Interval>> &intervals, std::vector<std::shared_ptr<Machine>> &machines, std::vector<std::shared_ptr<Maintenance_plan>> &m_plans){
+void menu_edit (std::vector<std::shared_ptr<Company>> &companies, std::vector<std::shared_ptr<Employee>> &employees, std::vector<std::shared_ptr<Interval>> &intervals, std::vector<std::shared_ptr<Stationary_machine>> stationary_machines, std::vector<std::shared_ptr<Mobile_machine>> mobile_machines, std::vector<std::shared_ptr<Maintenance_plan>> &m_plans){
     bool menu_active = true;
     
     while (menu_active){
@@ -78,6 +80,7 @@ void menu_edit (std::vector<std::shared_ptr<Company>> &companies, std::vector<st
         std::cin >> auswahl;
 
         if(auswahl == 1){
+            edit_companies(companies, employees, stationary_machines, mobile_machines);
 
         }else if(auswahl == 2){
             edit_employees(employees);
@@ -102,7 +105,7 @@ void menu_edit (std::vector<std::shared_ptr<Company>> &companies, std::vector<st
     }
 }
 
-void menu_delete (std::vector<std::shared_ptr<Company>> &companies, std::vector<std::shared_ptr<Employee>> &employees, std::vector<std::shared_ptr<Interval>> &intervals, std::vector<std::shared_ptr<Machine>> &machines, std::vector<std::shared_ptr<Maintenance_plan>> &m_plans){
+void menu_delete (std::vector<std::shared_ptr<Company>> &companies, std::vector<std::shared_ptr<Employee>> &employees, std::vector<std::shared_ptr<Interval>> &intervals, std::vector<std::shared_ptr<Stationary_machine>> stationary_machines, std::vector<std::shared_ptr<Mobile_machine>> mobile_machines, std::vector<std::shared_ptr<Maintenance_plan>> &m_plans){
     bool menu_active = true;
     
     while (menu_active){
@@ -149,7 +152,7 @@ void menu_delete (std::vector<std::shared_ptr<Company>> &companies, std::vector<
     }
 }
 
-void menu_show (std::vector<std::shared_ptr<Company>> &companies, std::vector<std::shared_ptr<Employee>> &employees, std::vector<std::shared_ptr<Interval>> &intervals, std::vector<std::shared_ptr<Machine>> &machines, std::vector<std::shared_ptr<Maintenance_plan>> &m_plans){
+void menu_show (std::vector<std::shared_ptr<Company>> &companies, std::vector<std::shared_ptr<Employee>> &employees, std::vector<std::shared_ptr<Interval>> &intervals, std::vector<std::shared_ptr<Stationary_machine>> stationary_machines, std::vector<std::shared_ptr<Mobile_machine>> mobile_machines, std::vector<std::shared_ptr<Maintenance_plan>> &m_plans){
     bool menu_active = true;
     
     while (menu_active){
@@ -168,6 +171,8 @@ void menu_show (std::vector<std::shared_ptr<Company>> &companies, std::vector<st
 
         if(auswahl == 1){
 
+            show_companies(companies);
+
         }else if(auswahl == 2){
 
             show_employees(employees);
@@ -177,6 +182,8 @@ void menu_show (std::vector<std::shared_ptr<Company>> &companies, std::vector<st
             show_intervals(intervals);
             
         }else if (auswahl == 4){
+
+            show_machines(stationary_machines, mobile_machines);
 
         }
         else if (auswahl == 5){
@@ -196,7 +203,7 @@ void menu_show (std::vector<std::shared_ptr<Company>> &companies, std::vector<st
     }
 }
 
-void menu_main(std::vector<std::shared_ptr<Company>> &companies, std::vector<std::shared_ptr<Employee>> &employees, std::vector<std::shared_ptr<Interval>> &intervals, std::vector<std::shared_ptr<Machine>> &machines, std::vector<std::shared_ptr<Maintenance_plan>> &m_plans){
+void menu_main(std::vector<std::shared_ptr<Company>> &companies, std::vector<std::shared_ptr<Employee>> &employees, std::vector<std::shared_ptr<Interval>> &intervals, std::vector<std::shared_ptr<Stationary_machine>> stationary_machines, std::vector<std::shared_ptr<Mobile_machine>> mobile_machines, std::vector<std::shared_ptr<Maintenance_plan>> &m_plans){
 
     bool menu_active = true;
 
@@ -223,20 +230,20 @@ void menu_main(std::vector<std::shared_ptr<Company>> &companies, std::vector<std
             
         }else if (auswahl == 3){
 
-            menu_add(companies, employees, intervals, machines, m_plans);
+            menu_add(companies, employees, intervals, stationary_machines, mobile_machines, m_plans);
 
         }else if (auswahl == 4){
 
-            menu_edit(companies, employees, intervals, machines, m_plans);
+            menu_edit(companies, employees, intervals, stationary_machines, mobile_machines, m_plans);
 
         }
         else if (auswahl == 5){
 
-            menu_delete(companies, employees, intervals, machines, m_plans);
+            menu_delete(companies, employees, intervals, stationary_machines, mobile_machines, m_plans);
 
         }else if (auswahl == 6){
 
-            menu_show(companies, employees, intervals, machines, m_plans);
+            menu_show(companies, employees, intervals, stationary_machines, mobile_machines, m_plans);
 
         }else if (auswahl == 7){
             std::cout << "Programm wird beendet." << std::endl;
