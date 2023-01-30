@@ -31,6 +31,9 @@ class Maintenance_plan{
     int get_id();
     void set_id(int a);
 
+    std::string get_name();
+    void set_name(std::string a);
+
     std::shared_ptr<Machine> get_machine();
     void set_machine(std::shared_ptr<Machine> a);
 

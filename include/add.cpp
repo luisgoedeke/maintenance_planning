@@ -91,6 +91,7 @@ void add_employee (std::vector<std::shared_ptr<Employee>> &employees){
         std::cout << "1: Auszubildener" << std::endl;
         std::cout << "2: Geselle" << std::endl;
         std::cout << "3: Meister" << std::endl; 
+        std::cout << "4: Abbrechen" << std::endl;
 
         int auswahl;
         std::cin >> auswahl;
@@ -136,4 +137,35 @@ void add_employee (std::vector<std::shared_ptr<Employee>> &employees){
 
     }
 
+}
+
+void add_company (std::vector<std::shared_ptr<Company>> &companies){
+    
+    bool menu_active = true;
+
+    int id;
+    std::string name;
+    
+ while (menu_active){
+        std::cout << "### Firma Anlegen ###" << std::endl;
+        std::cout << "Wie soll die ID der Firma lauten?" << std::endl;
+        std::cin >> id;
+        std::cout << "Wie der Name der Firma lauten?" << std::endl;
+        std::cin >> name;
+
+        companies.push_back(std::make_shared<Company>(id, name));
+
+        if (companies.size() > 1){
+
+            std::sort(companies.begin(), companies.end(), [](std::shared_ptr<Company> & a, std::shared_ptr<Company> & b){return a->get_name() < b->get_name();});
+
+        }
+
+        std::cout << "Möchten Sie eine weitere Firma anlegen? 0 für Abbruch" << std::endl;
+        int auswahl;
+        std::cin >>auswahl;
+        if (auswahl == 0){
+            menu_active = false;
+        }
+    }
 }

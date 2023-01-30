@@ -13,8 +13,19 @@ Company::Company(int a, std::string b){
 }
 Company::~Company(){}
 
-std::string get_id();
-void set_id(int a);
+int Company::get_id(){
+    return this->id;
+}
+void Company::set_id(int a){
+    this->id = a;
+}
+
+std::string Company::get_name(){
+    return this->name;
+}
+void Company::set_name(std::string a){
+    this->name = a;
+} 
 
 std::vector<std::shared_ptr<Employee>> Company::get_employees(){
     return this->employees;

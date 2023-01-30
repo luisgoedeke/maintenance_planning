@@ -33,6 +33,8 @@ void menu_add (std::vector<std::shared_ptr<Company>> &companies, std::vector<std
 
         if(auswahl == 1){
 
+            add_company(companies);
+
         }else if(auswahl == 2){
 
             add_employee(employees);
@@ -77,6 +79,7 @@ void menu_edit (std::vector<std::shared_ptr<Company>> &companies, std::vector<st
         if(auswahl == 1){
 
         }else if(auswahl == 2){
+            edit_employees(employees);
             
         }else if (auswahl == 3){
             

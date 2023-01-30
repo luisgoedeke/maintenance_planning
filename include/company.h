@@ -25,8 +25,11 @@ class Company
   Company(int a, std::string b);
   ~Company();
 
-  std::string get_id();
+  int get_id();
   void set_id(int a);
+
+  std::string get_name();
+  void set_name(std::string a); 
 
   std::vector<std::shared_ptr<Employee>> get_employees();
   void add_employee(std::shared_ptr<Employee> a);

@@ -11,4 +11,4 @@
 #include "show.h"
 
 void edit_interval (std::vector<std::shared_ptr<Interval>> &intervals);
-void edit_employee (std::vector<std::shared_ptr<Employee>> &employees);
+void edit_employees (std::vector<std::shared_ptr<Employee>> &employees);

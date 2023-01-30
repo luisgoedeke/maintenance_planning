@@ -33,6 +33,13 @@ void Maintenance_plan::set_id(int a){
     this->id = a;
 }
 
+std::string Maintenance_plan::get_name(){
+    return this->name;
+}
+void Maintenance_plan::set_name(std::string a){
+    this->name = a;
+}
+
 std::shared_ptr<Machine> Maintenance_plan::get_machine(){
     return this->machine;
 }
