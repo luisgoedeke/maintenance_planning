@@ -10,6 +10,8 @@
 #include "machine.h"
 #include "maintenance_plan.h"
 
+#include "write_file.h"
+
 write_file_interval(std::vector<std::shared_ptr<Interval>> intervals)
 {
   std::ofstream Ausgabe;
@@ -17,10 +19,10 @@ write_file_interval(std::vector<std::shared_ptr<Interval>> intervals)
   if(Ausgabe)
   {
   Ausgabe << "Intervalle:" << std::endl;
-  Ausgabe << "Einheit;Anzahl;Stunden;" << std::endl;
+  Ausgabe << "Einheit;Anzahl;" << std::endl;
   for (const auto& s : intervals)
   {
-      Ausgabe << s->get_unit() << ";" << s->get_number() <<";" << s->get_total_h() << ";" << std::endl;
+      Ausgabe << s->get_unit() << ";" << s->get_number() <<";" << std::endl;
   }
   Ausgabe.close();
   }
@@ -106,8 +108,8 @@ write_file_maintenance_plan(std::vector<std::shared_ptr<Maintenance_plan>> maint
       Ausgabe << "ID;Name;Firma;" << std::endl;
       Ausgabe << s->getmachine()->get_id() << ";" <<  s->getmachine()->get_name() <<";" << s->getmachine()->get_company() << ";" <<std::endl;
       Ausgabe << "Intervall:" << std::endl;
-      Ausgabe << "Einheit;Anzahl;Stunden;" << std::endl;
-      Ausgabe << s->get_interval()->get_unit() << ";" << s->get_interval()->get_number() <<";" << s->get_interval()->get_total_h() << ";" << std::endl;
+      Ausgabe << "Einheit;Anzahl;" << std::endl;
+      Ausgabe << s->get_interval()->get_unit() << ";" << s->get_interval()->get_number() <<";" << std::endl;
       Ausgabe << "Mitarbeiter:" << std::endl;
       Ausgabe << "Nachname;Vorname;Qualifikation;ID;" << std::endl;
       Ausgabe << s->get_employee()->get_last_name() << ";" <<  s->get_employee()->get_first_name() <<";" << s->get_employee()->get_qualification() << ";" << s->get_employee()->get_id() <<";"<<std::endl;
