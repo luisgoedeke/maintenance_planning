@@ -6,7 +6,6 @@
 
 #include "add.h"
 #include "company.h"
-#include "comparsion.h"
 #include "employee.h"
 #include "interval.h"
 #include "machine.h"
@@ -67,8 +66,70 @@ void add_interval (std::vector<std::shared_ptr<Interval>> &intervals){
 
         if (intervals.size() > 1){
 
-
             std::sort(intervals.begin(), intervals.end(), [](std::shared_ptr<Interval> & a, std::shared_ptr<Interval> & b){return a->get_total_h() < b->get_total_h();});
+
+        }
+
+
+    }
+
+}
+
+void add_employee (std::vector<std::shared_ptr<Employee>> &employees){
+
+    bool menu_active = true;
+
+    int id;
+    std::string qualification;
+    std::string first_name;
+    std::string last_name;
+    
+
+ while (menu_active){
+        std::cout << "### Mitarbeiter Anlegen ###" << std::endl;
+        std::cout << "Welche Qualifikation hat der Mitarbeiter? Bitte geben Sie die Zahl der Option." << std::endl;
+        std::cout << "1: Auszubildener" << std::endl;
+        std::cout << "2: Geselle" << std::endl;
+        std::cout << "3: Meister" << std::endl; 
+
+        int auswahl;
+        std::cin >> auswahl;
+
+        if(auswahl == 1){
+
+            qualification = "Auszubildener";
+
+        }else if(auswahl == 2){
+
+           qualification = "Geselle";
+            
+        }else if (auswahl == 3){
+            
+            qualification = "Geselle";
+
+        }else if (auswahl == 4){
+            menu_active = false;
+            break;
+        }
+        else{
+            std::cout << "Eingabe ungueltig, bitte wiederholen" << std::endl;
+            break;
+        }
+
+        std::cout << "Wie lautet der Vorname des Mitarbeiters?" << std::endl;
+        std::cin >> first_name;
+
+        std::cout << "Wie lautet der Nachname des Mitarbeiters?" << std::endl;
+        std::cin >> last_name; 
+
+        std::cout << "Bitte geben Sie die ID des Mitarbeiters ein:" << std::endl;
+        std::cin >> id;
+
+        employees.push_back(std::make_shared<Employee>(id, first_name, last_name, qualification));
+
+        if (employees.size() > 1){
+
+            std::sort(employees.begin(), employees.end(), [](std::shared_ptr<Employee> & a, std::shared_ptr<Employee> & b){return a->get_last_name() < b->get_last_name();});
 
         }
 

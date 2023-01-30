@@ -10,3 +10,5 @@
 #include "maintenance_plan.h"
 
 void show_intervals (std::vector<std::shared_ptr<Interval>> &intervals);
+
+void show_employees (std::vector<std::shared_ptr<Employee>> &employees);

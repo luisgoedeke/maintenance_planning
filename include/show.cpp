@@ -20,3 +20,14 @@ void show_intervals (std::vector<std::shared_ptr<Interval>> &intervals){
         counter++;
     }
 }
+
+void show_employees (std::vector<std::shared_ptr<Employee>> &employees){
+
+    int counter = 0;
+
+    for (const auto& s : employees){ 
+
+        std::cout << counter << ": " << "Nachname: " << s->get_last_name() << "; Vorname: " << s->get_first_name() <<"; " << "Qualifikation: " << s->get_qualification() << "; " << "ID: " << s->get_id() <<std::endl;
+        counter++;
+    }
+}

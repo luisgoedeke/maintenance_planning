@@ -34,6 +34,8 @@ void menu_add (std::vector<std::shared_ptr<Company>> &companies, std::vector<std
         if(auswahl == 1){
 
         }else if(auswahl == 2){
+
+            add_employee(employees);
             
         }else if (auswahl == 3){
             
@@ -78,6 +80,7 @@ void menu_edit (std::vector<std::shared_ptr<Company>> &companies, std::vector<st
             
         }else if (auswahl == 3){
             
+            edit_interval(intervals);
 
         }else if (auswahl == 4){
 
@@ -115,9 +118,12 @@ void menu_delete (std::vector<std::shared_ptr<Company>> &companies, std::vector<
         if(auswahl == 1){
 
         }else if(auswahl == 2){
+
+            delete_employee(employees);
             
         }else if (auswahl == 3){
-            
+
+            delete_interval(intervals);
 
         }else if (auswahl == 4){
 
@@ -159,6 +165,8 @@ void menu_show (std::vector<std::shared_ptr<Company>> &companies, std::vector<st
         if(auswahl == 1){
 
         }else if(auswahl == 2){
+
+            show_employees(employees);
             
         }else if (auswahl == 3){
 

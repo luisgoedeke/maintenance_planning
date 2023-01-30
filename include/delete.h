@@ -9,3 +9,6 @@
 #include "machine.h"
 #include "maintenance_plan.h"
 #include "show.h"
+
+void delete_interval (std::vector<std::shared_ptr<Interval>> &intervals);
+void delete_employee (std::vector<std::shared_ptr<Employee>> &employees);
