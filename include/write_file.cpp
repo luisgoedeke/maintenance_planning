@@ -1,203 +1,117 @@
-//test 
 #include <fstream>
 #include <iostream>
+#include <memory>
 #include <string>
 #include <vector>
-#include <array>
 
-using std::cout; using std::cin;
-using std::endl; using std::string;
-using std::vector; using std::array;
+#include "company.h"
+#include "employee.h"
+#include "interval.h"
+#include "machine.h"
+#include "maintenance_plan.h"
 
-using namespace std;
-
-class Employee
+write_file_interval(std::vector<std::shared_ptr<Interval>> intervals)
 {
-  private:
+  std::ofstream Ausgabe;
+  Ausgabe.open("Interval.txt");
+  if(Ausgabe)
+  {
+  Ausgabe << "Intervalle:" << std::endl;
+  Ausgabe << "Einheit;Anzahl;Stunden;" << std::endl;
+  for (const auto& s : intervals)
+  {
+      Ausgabe << s->get_unit() << ";" << s->get_number() <<";" << s->get_total_h() << ";" << std::endl;
+  }
+  Ausgabe.close();
+  }
+}
 
-  int id;
-  std::string name;
-  std::string qualification;
-
-  public:
-  Employee() = default;             //zugefügter Konstruktor
-  Employee(int a, std::string b, std::string c)
-  {
-    this->id = a;
-    this->name = b;
-    this->qualification = c;
-  }
-
-  ~Employee(){}
-
-  int get_id()
-  {
-    return this->id;
-  }
-  void set_id(int a)
-  {
-    this->id = a;
-  }
-  std::string get_name()
-  {
-    return this->name;
-  }
-  void set_name(std::string a)
-  {
-    this->name = a;
-  }
-  std::string get_qualification()
-  {
-    return this->qualification;
-  }
-  void set_qualification(std::string a)
-  {
-    this->qualification = a;
-  }
-};
-
-class Interval
+write_file_employee(std::vector<std::shared_ptr<Employee>> employees)
 {
-  private:
-  char unit;
-  int number;
-
-  public:
-    Interval(char a, int b)
+  std::ofstream Ausgabe;
+  Ausgabe.open("Mitarbeiter.txt");
+  if(Ausgabe)
+  {
+    Ausgabe << "Mitarbeiter:" << std::endl;
+    Ausgabe << "Nachname;Vorname;Qualifikation;ID;" << std::endl;
+    for (const auto& s : employees)
     {
-      this->unit = a;
-      this->number = b;
+        Ausgabe << s->get_last_name() << ";" <<  s->get_first_name() <<";" << s->get_qualification() << ";" << s->get_id() <<";"<<std::endl;
+    }
+  Ausgabe.close();
+  }
+}
 
-    }
-    ~Interval(){}
-    char get_unit(){
-        return this->unit;
-    }
-    void set_unit(char a){
-        this->unit = a;
-    }
-    int get_number(){
-        return this->number;
-    }
-    void set_number(int a){
-        this->number = a;
-    }
-  };
-
-  class Machine
+write_file_company(std::vector<std::shared_ptr<Company>> companies)
+{
+  std::ofstream Ausgabe;
+  Ausgabe.open("Firma.txt");
+  if(Ausgabe)
   {
-      protected:
-      int id;
-      std::string name;
+    Ausgabe << "Firmen:" << std::endl;
+    for (const auto& s : companies)
+    {
+        Ausgabe << "ID;Firmenname;" << std::endl;
+        Ausgabe << s->get_id() << ";" <<  s->get_name() <<";" << std::endl;
 
-      public:
-      Machine(){}
-      Machine(int a, std::string b)
-      {
-        this->id = a;
-        this->name = b;
-      }
-      ~Machine(){}
-      void print()
-      {
-        std::cout<<"Ich bin eine Maschine"<<std::endl;
-      }
-      void set_id(int a){
-          this->id = a;
-      }
-      int get_id(){
-          return this->id;
-      }
-      void set_name(string a){
-          this->name = a;
-      }
-      string get_name(){
-          return this->name;
-      }
+        std::vector<std::shared_ptr<Employee>> employees = s->get_employees();
+        Ausgabe << "Firmenmitarbeiter:" << std::endl;
+        Ausgabe << "Nachname;Vorname;Qualifikation;ID;" << std::endl;
+        for (const auto& e : employees)
+        {
+          Ausgabe << e->get_last_name() << ";" <<  e->get_first_name() <<";" << e->get_qualification() << "; " << e->get_id() <<";"<<std::endl;
+        }
 
-  };
+        std::vector<std::shared_ptr<Machine>> machines = s->get_machines();
+        Ausgabe << "Firmenmaschinen:" << std::endl;
+        Ausgabe << "ID;Name;Firma;" << std::endl;
+        for (const auto& m : machines)
+        {
+            Ausgabe << m->get_id() << ";" <<  m->get_name() <<";" << m->get_company() << ";" <<std::endl;
+        }
+    }
+  Ausgabe.close();
+  }
+}
 
-  class Stationary_machine : Machine
+write_file_machine(std::vector<std::shared_ptr<Machine>> machines)
+{
+  std::ofstream Ausgabe;
+  Ausgabe.open("Maschine.txt");
+  if(Ausgabe)
   {
-      private:
-      std::string location;
+    Ausgabe << "Maschinen:" << std::endl;
+    Ausgabe << "ID;Name;Firma;" << std::endl;
+    for (const auto& s : machines)
+    {
+        Ausgabe << s->get_id() << ";" <<  s->get_name() <<";" << s->get_company() << ";" <<std::endl;
+    }
+  Ausgabe.close();
+  }
+}
 
-
-  };
-
-  class Mobile_machine : Machine
+write_file_maintenance_plan(std::vector<std::shared_ptr<Maintenance_plan>> maintenance_plans)
+{
+  std::ofstream Ausgabe;
+  Ausgabe.open("Wartungsplan.txt");
+  if(Ausgabe)
   {
-      private:
-      double weight;
-  };
+    Ausgabe << "Wartungspläne:" << std::endl;
+    for (const auto& s : maintenance_plans)
+    {
+      Ausgabe << "ID;Name;Qualifikation;Qualifikationswert;" << std::endl;
+      Ausgabe << s->get_id() << ";" <<  s->get_name() <<";" << s->get_required_qualification() << ";" << s->get_required_qualification_value() << ";" << std::endl;
 
-
-int main()
-{
-//Test-Employee Objekte definieren
-//Variante 2
-array<Employee,4> arr2 =
-{
-Employee(1553,"Max","Meister"),
-Employee(4126,"Karl","Lehrling"),
-Employee(7489,"Otto","Geselle"),
-Employee(5121,"Peter","Meister")
-};
-array<Interval,2> arr3 =
-{
-Interval(3, 1),
-Interval(6, 2),
-};
-
-array<Machine,4> arr4 =
-{
-Machine(123,"M1"),
-Machine(636,"M2"),
-Machine(264,"M3"),
-Machine(674,"M4"),
-};
-
-
-//Daten in Textdatei ausgeben
-ofstream Ausgabe;
-Ausgabe.open("Daten.txt");
-if(Ausgabe)
-{
-Ausgabe << "Daten der aktuellen Mitarbeiter:" << endl;
-for (auto &item : arr2)
-{
-  int id = 0;
-  id = item.get_id();
-  Ausgabe << "Id:" << id << "; ";
-  string name = "";
-  name = item.get_name();
-  Ausgabe << "Name:" << name << "; ";
-  string qualification = "";
-  qualification = item.get_qualification();
-  Ausgabe << "Qualifikation:" << qualification << "; " << endl;
-}
-
-Ausgabe << endl << "Daten der aktuellen Intervalle:" << endl;
-for (auto &item : arr3)
-{
-  char unit = 0;
-  unit = item.get_unit();
-  Ausgabe << "Unit:" << unit << "; ";
-  int number = 0;
-  number = item.get_number();
-  Ausgabe << "Number:" << number << "; " << endl;
-}
-
-Ausgabe << endl << "Daten der aktuellen Maschinen:" << endl;
-for (auto &item : arr4)
-{
-  int id = 0;
-  id = item.get_id();
-  Ausgabe << "Id:" << id << "; ";
-  string name = "";
-  name = item.get_name();
-  Ausgabe << "Name:" << name << "; " << endl;
-}
-Ausgabe.close();
-}
+      Ausgabe << "Maschine:" << std::endl;
+      Ausgabe << "ID;Name;Firma;" << std::endl;
+      Ausgabe << s->getmachine()->get_id() << ";" <<  s->getmachine()->get_name() <<";" << s->getmachine()->get_company() << ";" <<std::endl;
+      Ausgabe << "Intervall:" << std::endl;
+      Ausgabe << "Einheit;Anzahl;Stunden;" << std::endl;
+      Ausgabe << s->get_interval()->get_unit() << ";" << s->get_interval()->get_number() <<";" << s->get_interval()->get_total_h() << ";" << std::endl;
+      Ausgabe << "Mitarbeiter:" << std::endl;
+      Ausgabe << "Nachname;Vorname;Qualifikation;ID;" << std::endl;
+      Ausgabe << s->get_employee()->get_last_name() << ";" <<  s->get_employee()->get_first_name() <<";" << s->get_employee()->get_qualification() << ";" << s->get_employee()->get_id() <<";"<<std::endl;
+    }
+  Ausgabe.close();
+  }
 }
