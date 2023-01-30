@@ -65,8 +65,8 @@ void delete_machine (std::vector<std::shared_ptr<Stationary_machine>> &stationar
     int position;
     std::cout << "Was für eine Art Maschine möchten Sie löschen?" << std::endl;
     std::cout << "1 Stationaere Maschine"  << std::endl;
-    std::cout << "2 Mobile Maschine" std::endl;
-    std::cout << "3 Abbrechen" std::endl;
+    std::cout << "2 Mobile Maschine" << std::endl;
+    std::cout << "3 Abbrechen" << std::endl;
     std::cin >>auswahl;
     if (auswahl == 1){
         show_stationary_machines(stationary_machines);

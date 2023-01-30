@@ -14,6 +14,7 @@
 #include "menu.h"
 #include "show.h"
 #include "write_file.h"
+#include "read_file.h"
 
 void menu_add (std::vector<std::shared_ptr<Company>> &companies, std::vector<std::shared_ptr<Employee>> &employees, std::vector<std::shared_ptr<Interval>> &intervals, std::vector<std::shared_ptr<Stationary_machine>> stationary_machines, std::vector<std::shared_ptr<Mobile_machine>> mobile_machines, std::vector<std::shared_ptr<Maintenance_plan>> &m_plans){
     bool menu_active = true;
@@ -226,6 +227,8 @@ void menu_main(std::vector<std::shared_ptr<Company>> &companies, std::vector<std
         std::cin >> auswahl;
 
         if(auswahl == 1){
+
+            read_file_interval(intervals);
 
         }else if(auswahl == 2){
 

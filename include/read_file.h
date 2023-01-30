@@ -22,8 +22,8 @@ void read_file_employee(std::vector<std::shared_ptr<Employee>> &employees);
 
 void read_file_company(std::vector<std::shared_ptr<Company>> &companies);
 
-void read_file_machine(std::vector<std::shared_ptr<Machine>> &machines);
+//void read_file_machine(std::vector<std::shared_ptr<Machine>> &machines);
 
-void read_file_maintenance_plan(std::vector<std::shared_ptr<Maintenance_plan>> &maintenance_plans);
+//void read_file_maintenance_plan(std::vector<std::shared_ptr<Maintenance_plan>> &maintenance_plans);
 
 #endif

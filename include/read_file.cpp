@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <fstream>
 #include <iostream>
 #include <memory>
@@ -84,15 +85,15 @@ for (int i = 3; i <= line_count; i++)
 
   std::string line2 = line.substr(pos+1);
   std::size_t pos2 = line2.find(';');
-  std::string first_name = std::stoi(line2.substr(0,pos2));
+  std::string first_name = line2.substr(0,pos2);
 
   std::string line3 = line2.substr(pos2+1);
   std::size_t pos3 = line3.find(';');
-  std::string qualification = line3.substr(0,pos3) << std::endl;
+  std::string qualification = line3.substr(0,pos3);
 
   std::string line4 = line3.substr(pos3+1);
   std::size_t pos4 = line4.find(';');
-  int id = std::stoi(line4.substr(0,pos4)) << std::endl;
+  int id = std::stoi(line4.substr(0,pos4));
 
   employees.push_back(std::make_shared<Employee>(id, first_name, last_name, qualification));
 
@@ -140,7 +141,7 @@ void read_file_company(std::vector<std::shared_ptr<Company>> &companies)
 
 
 }
-
+/*
 void read_file_machine(std::vector<std::shared_ptr<Machine>> &machines)
 {
 
@@ -176,3 +177,4 @@ void read_file_maintenance_plan(std::vector<std::shared_ptr<Maintenance_plan>> &
 
   }
 }
+*/
