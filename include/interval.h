@@ -10,10 +10,14 @@ class Interval
     public:
     Interval(char a, int b);
     ~Interval();
+
     char get_unit();
     void set_unit(char a);
+
     int get_number();
     void set_number(int a);
+
+    int get_total_h();
 };
 
 #endif

@@ -31,6 +31,8 @@
         "sstream": "cpp",
         "tuple": "cpp",
         "utility": "cpp",
-        "memory": "cpp"
-    }
+        "memory": "cpp",
+        "deque": "cpp"
+    },
+    "C_Cpp.errorSquiggles": "disabled"
 }
