@@ -12,8 +12,8 @@
 
 void delete_interval (std::vector<std::shared_ptr<Interval>> &intervals);
 
-void delete_employee (std::vector<std::shared_ptr<Employee>> &employees);
+void delete_employee (std::vector<std::shared_ptr<Employee>> &employees, std::vector<std::shared_ptr<Company>> &companies);
 
 void delete_company (std::vector<std::shared_ptr<Company>> &companies);
 
-void delete_machine (std::vector<std::shared_ptr<Stationary_machine>> &stationary_machines,std::vector<std::shared_ptr<Mobile_machine>> &mobile_machines);
+void delete_machine (std::vector<std::shared_ptr<Stationary_machine>> &stationary_machines,std::vector<std::shared_ptr<Mobile_machine>> &mobile_machines, std::vector<std::shared_ptr<Company>> &companies);

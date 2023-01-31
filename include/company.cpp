@@ -51,6 +51,7 @@ void Company::add_stationary_machine(std::shared_ptr<Stationary_machine> a){
     this->stationary_machines.push_back(a);
 }
 void Company::delete_stationary_machine(int a){
+    this->stationary_machines.erase(stationary_machines.begin()+a);
 }
 
 std::vector<std::shared_ptr<Mobile_machine>> Company::get_mobile_machines(){
@@ -60,4 +61,5 @@ void Company::add_mobile_machine(std::shared_ptr<Mobile_machine> a){
     this->mobile_machines.push_back(a);
 }
 void Company::delete_mobile_machine(int a){
+    this->mobile_machines.erase(mobile_machines.begin()+a);
 }

@@ -230,3 +230,113 @@ void add_machine (std::vector<std::shared_ptr<Company>> &companies, std::vector<
         }
     }
 }
+
+void add_maintenance_plan (std::vector<std::shared_ptr<Company>> &companies, std::vector<std::shared_ptr<Employee>> &employees, std::vector<std::shared_ptr<Interval>> &intervals, std::vector<std::shared_ptr<Stationary_machine>> &stationary_machines, std::vector<std::shared_ptr<Mobile_machine>> &mobile_machines, std::vector<std::shared_ptr<Maintenance_plan>> &m_plans){
+    bool menu_active = true;
+    int auswahl;
+
+    int id;
+    std::string name;
+    std::shared_ptr<Stationary_machine> stationary_machine;
+    std::shared_ptr<Mobile_machine> mobile_machine;
+    std::shared_ptr<Interval> interval;
+    std::string required_qualification;
+    std::shared_ptr<Employee> employee;
+
+    int pos_machine;
+    int pos_interval;
+    int pos_employee;
+
+    while (menu_active){
+        std::cout << "Bitte auswaehlen:" << std::endl;
+        std::cout << "1 Wartungsplan für mobile Maschine anlegen" << std::endl;
+        std::cout << "2 Wartungsplan für stationaere Maschine anlegen" << std::endl;
+        std::cout << "3 Abbrechen" << std::endl;
+
+        std::cin>>auswahl;
+
+        if(auswahl == 1 ){
+            std::cout << "Bitte geben Sie die ID ein:" << std::endl;
+            std::cin>> id;
+            std::cout << "Bitte geben sie einen Namen ein:" << std::endl;
+            std::cin >> name;
+            show_mobile_machines(mobile_machines);
+            std::cout << "Geben Sie bitte die Nummer der Maschine ein:" << std::endl;
+            std::cin >> pos_machine;
+            mobile_machine = mobile_machines[pos_machine];
+            show_intervals(intervals);
+            std::cout << "Geben Sie bitte die Nummer des Intervalls ein:" << std::endl;
+            std::cin >> pos_interval;
+            interval = intervals[pos_interval];
+            std::cout << "Geben Sie bitte die benötigte Qualifikation an:" << std::endl;
+            std::cout << "1 Auszubildener" << std::endl;
+            std::cout << "2 Geselle" << std::endl;
+            std::cout << "3 Meister" << std::endl;
+            std::cin >> auswahl;
+            if (auswahl == 1){
+                required_qualification = "Auszubildener";
+            }else if (auswahl == 2){
+                required_qualification = "Geselle";
+            }else if (auswahl == 3){
+                required_qualification = "Meister";
+            }
+            show_employees(employees);
+            std::cout << "Geben Sie bitte die Nummer des Mitarbeiters ein:" << std::endl;
+            std::cin >> pos_employee;
+            employee = employees[pos_employee];
+
+            m_plans.push_back(std::make_shared<Maintenance_plan>(id, name, mobile_machine, interval, required_qualification, employee));
+
+            if (m_plans.size() > 1){
+
+            std::sort(m_plans.begin(), m_plans.end(), [](std::shared_ptr<Maintenance_plan> & a, std::shared_ptr<Maintenance_plan> & b){return a->get_name() < b->get_name();});
+
+            }
+
+        }else if (auswahl == 2){
+            std::cout << "Bitte geben Sie die ID ein:" << std::endl;
+            std::cin>> id;
+            std::cout << "Bitte geben sie einen Namen ein:" << std::endl;
+            std::cin >> name;
+            show_stationary_machines(stationary_machines);
+            std::cout << "Geben Sie bitte die Nummer der Maschine ein:" << std::endl;
+            std::cin >> pos_machine;
+            stationary_machine = stationary_machines[pos_machine];
+            show_intervals(intervals);
+            std::cout << "Geben Sie bitte die Nummer des Intervalls ein:" << std::endl;
+            std::cin >> pos_interval;
+            interval = intervals[pos_interval];
+            std::cout << "Geben Sie bitte die benötigte Qualifikation an:" << std::endl;
+            std::cout << "1 Auszubildener" << std::endl;
+            std::cout << "2 Geselle" << std::endl;
+            std::cout << "3 Meister" << std::endl;
+            std::cin >> auswahl;
+            if (auswahl == 1){
+                required_qualification = "Auszubildener";
+            }else if (auswahl == 2){
+                required_qualification = "Geselle";
+            }else if (auswahl == 3){
+                required_qualification = "Meister";
+            }
+            show_employees(employees);
+            std::cout << "Geben Sie bitte die Nummer des Mitarbeiters ein:" << std::endl;
+            std::cin >> pos_employee;
+            employee = employees[pos_employee];
+
+            m_plans.push_back(std::make_shared<Maintenance_plan>(id, name, mobile_machine, interval, required_qualification, employee));
+
+            if (m_plans.size() > 1){
+
+            std::sort(m_plans.begin(), m_plans.end(), [](std::shared_ptr<Maintenance_plan> & a, std::shared_ptr<Maintenance_plan> & b){return a->get_name() < b->get_name();});
+
+            }
+
+
+        }else if (auswahl == 3){
+            menu_active = false;
+            break;
+        }
+
+
+    }
+}
