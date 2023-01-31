@@ -1,0 +1,2 @@
+Maschinen:
+ID;Name;Firma;Ort;

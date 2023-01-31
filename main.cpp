@@ -22,18 +22,6 @@ int main(){
     std::vector<std::shared_ptr<Maintenance_plan>> m_plans;
  
     menu_main(companies, employees, intervals, stationary_machines, mobile_machines, m_plans);
-/*
-
-    auto y = std::make_shared<Interval>('x',10);
-
-    intervals.push_back(y);
-
-    std::cout<<y.use_count() <<std::endl;
-
-    intervals.erase(intervals.begin());
-
-    std::cout<<y.use_count() <<std::endl;
-*/
 
     return 0;
 

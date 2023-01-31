@@ -187,10 +187,10 @@ void add_machine (std::vector<std::shared_ptr<Company>> &companies, std::vector<
         double weight;
 
         if (auswahl == 1){
-            std::cout << "Bitte geben Sie eine ID für die Maschine ein:" << std::endl;
+            std::cout << "Bitte geben Sie eine ID fuer die Maschine ein:" << std::endl;
             std::cin >> id;
 
-            std::cout << "Bitte geben Sie einen Namen für die Maschine ein:" << std::endl;
+            std::cout << "Bitte geben Sie einen Namen fuer die Maschine ein:" << std::endl;
             std::cin >> name;
 
             show_companies(companies);
@@ -210,7 +210,7 @@ void add_machine (std::vector<std::shared_ptr<Company>> &companies, std::vector<
             std::cout << "Bitte geben Sie eine ID für die Maschine ein:" << std::endl;
             std::cin >> id;
 
-            std::cout << "Bitte geben Sie einen Namen für die Maschine ein:" << std::endl;
+            std::cout << "Bitte geben Sie einen Namen fuer die Maschine ein:" << std::endl;
             std::cin >> name;
 
             show_companies(companies);

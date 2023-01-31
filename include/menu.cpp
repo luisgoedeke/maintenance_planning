@@ -233,10 +233,16 @@ void menu_main(std::vector<std::shared_ptr<Company>> &companies, std::vector<std
         if(auswahl == 1){
 
             read_file_interval(intervals);
+            read_file_employee(employees);
+            read_file_company(companies);
 
         }else if(auswahl == 2){
 
             write_file_interval(intervals);
+            write_file_employee(employees);
+            write_file_company(companies);
+            write_file_mobile_machine(mobile_machines);
+            write_file_stationary_machine(stationary_machines);
             
         }else if (auswahl == 3){
 
