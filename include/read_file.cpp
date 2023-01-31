@@ -142,6 +142,7 @@ void read_file_company(std::vector<std::shared_ptr<Company>> &companies)
 
 }
 
+/*
 void read_file_stationary_machine(std::vector<std::shared_ptr<Stationary_machine>> &stationary_machines)
 {
 
@@ -168,15 +169,14 @@ void read_file_stationary_machine(std::vector<std::shared_ptr<Stationary_machine
 
     std::string line3 = line2.substr(pos2+1);
     std::size_t pos3 = line3.find(';');
-//hier muss entweder id oder der name oder beides stehen (auch noch in write file anpassen)
+
     int f_id = line3.substr(0,pos3);
 
     std::string line4 = line3.substr(pos3+1);
     std::size_t pos4 = line4.find(';');
     int weight = std::stoi(line4.substr(0,pos4));
 
-    //Company zuordnen
-    //wahrschienlich falsch
+
     for (const auto& s : companies)
     {
       if(name == s->getname())
@@ -184,7 +184,7 @@ void read_file_stationary_machine(std::vector<std::shared_ptr<Stationary_machine
         break;
       }
     }
-    std::shared_ptr<Employee> company = s;
+    std::shared_ptr<Company> company = companies[s];
 
 
   stationary_machines.push_back(std::make_shared<Stationary_machine>(id, name, company));
@@ -236,7 +236,7 @@ for (const auto& s : companies)
     break;
   }
 }
-std::shared_ptr<Company> company = company[s]
+std::shared_ptr<Company> company = companies[s]
 
   mobile_machines.push_back(std::make_shared<Mobile_machine>(id, name, company));
 
@@ -334,8 +334,6 @@ int e_id = std::stoi(eline4.substr(0,epos4));
 
 i=i+2;
 
-//Maschine zuordnen
-//wahrschienlich falsch
 for (const auto& sm : stationary_machines)
 {
   if(m_id == sm->getid())
@@ -343,7 +341,7 @@ for (const auto& sm : stationary_machines)
     break;
   }
 }
-std::shared_ptr<Machine> machine = machine[sm];
+std::shared_ptr<Machine> machine = stationary_machines[sm];
 
 for (const auto& mm : mobile_machines)
 {
@@ -352,10 +350,8 @@ for (const auto& mm : mobile_machines)
     break;
   }
 }
-std::shared_ptr<Machine> machine = machine[mm];
+std::shared_ptr<Machine> machine = mobile_machines[mm];
 
-//Employee zuordnen
-//wahrschienlich falsch
 for (const auto& e : employees)
 {
   if(e_id == e->getid())
@@ -363,10 +359,8 @@ for (const auto& e : employees)
     break;
   }
 }
-std::shared_ptr<Employee> employee = e;
+std::shared_ptr<Employee> employee = employees[e];
 
-//Intervall zuordnen
-//wahrschienlich falsch
 for (const auto& i : intervals)
 {
   if(unit == i->getunit() && number == i->getnumber())
@@ -374,7 +368,7 @@ for (const auto& i : intervals)
     break;
   }
 }
-std::shared_ptr<Employee> interval = i;
+std::shared_ptr<Employee> interval = intervals[i];
 
 
   maintenance_plans.push_back(std::make_shared<Maintenance_plan>(id, name, machine, interval, required_qualification, required_qualification_value, employee));
@@ -386,3 +380,4 @@ std::shared_ptr<Employee> interval = i;
   }
 }
 }
+*/
