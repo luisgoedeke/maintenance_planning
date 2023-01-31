@@ -52,6 +52,8 @@ void menu_add (std::vector<std::shared_ptr<Company>> &companies, std::vector<std
         }
         else if (auswahl == 5){
 
+            add_maintenance_plan(companies, employees, intervals, stationary_machines, mobile_machines, m_plans);
+
         }else if (auswahl == 6){
             std::cout << "Zurueck ins Hauptmenue." << std::endl;
             menu_active = false;
@@ -129,13 +131,15 @@ void menu_delete (std::vector<std::shared_ptr<Company>> &companies, std::vector<
 
         }else if(auswahl == 2){
 
-            delete_employee(employees);
+            delete_employee(employees, companies);
             
         }else if (auswahl == 3){
 
             delete_interval(intervals);
 
         }else if (auswahl == 4){
+
+            delete_machine(stationary_machines, mobile_machines, companies);
 
         }
         else if (auswahl == 5){

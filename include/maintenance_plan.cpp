@@ -10,7 +10,7 @@
 #include "machine.h"
 
 
-Maintenance_plan::Maintenance_plan(int a, std::string b, std::shared_ptr<Stationary_machine> c, std::shared_ptr<Interval> d, std::string e, int f, std::shared_ptr<Employee> g){
+Maintenance_plan::Maintenance_plan(int a, std::string b, std::shared_ptr<Stationary_machine> c, std::shared_ptr<Interval> d, std::string e, std::shared_ptr<Employee> g){
     this->id = a;
     this->name = b;
     this->stationary_machine = c;
@@ -30,7 +30,7 @@ Maintenance_plan::Maintenance_plan(int a, std::string b, std::shared_ptr<Station
 
 }
 
-Maintenance_plan::Maintenance_plan(int a, std::string b, std::shared_ptr<Mobile_machine> c, std::shared_ptr<Interval> d, std::string e, int f, std::shared_ptr<Employee> g){
+Maintenance_plan::Maintenance_plan(int a, std::string b, std::shared_ptr<Mobile_machine> c, std::shared_ptr<Interval> d, std::string e, std::shared_ptr<Employee> g){
     this->id = a;
     this->name = b;
     this->mobile_machine = c;

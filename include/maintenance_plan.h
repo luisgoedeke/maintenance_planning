@@ -27,8 +27,8 @@ class Maintenance_plan{
 
     public:
     
-    Maintenance_plan(int a, std::string b, std::shared_ptr<Stationary_machine> c, std::shared_ptr<Interval> d, std::string e, int f, std::shared_ptr<Employee> g);
-    Maintenance_plan(int a, std::string b, std::shared_ptr<Mobile_machine> c, std::shared_ptr<Interval> d, std::string e, int f, std::shared_ptr<Employee> g);
+    Maintenance_plan(int a, std::string b, std::shared_ptr<Stationary_machine> c, std::shared_ptr<Interval> d, std::string e, std::shared_ptr<Employee> g);
+    Maintenance_plan(int a, std::string b, std::shared_ptr<Mobile_machine> c, std::shared_ptr<Interval> d, std::string e, std::shared_ptr<Employee> g);
     ~Maintenance_plan();
 
     int get_id();
