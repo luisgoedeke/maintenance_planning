@@ -1,3 +1,6 @@
+#ifndef DELETE_H
+#define DELETE_H
+
 #include <iostream>
 #include <memory>
 #include <string>
@@ -17,3 +20,5 @@ void delete_employee (std::vector<std::shared_ptr<Employee>> &employees, std::ve
 void delete_company (std::vector<std::shared_ptr<Company>> &companies);
 
 void delete_machine (std::vector<std::shared_ptr<Stationary_machine>> &stationary_machines,std::vector<std::shared_ptr<Mobile_machine>> &mobile_machines, std::vector<std::shared_ptr<Company>> &companies);
+
+#endif

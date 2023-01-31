@@ -43,4 +43,4 @@ read_file.o: ./include/read_file.h ./include/read_file.cpp
 	g++ -c ./include/read_file.cpp -std=c++17
 
 clean:
-	del main.o company.o employee.o interval.o machine.o maintenance_plan.o menu.o add.o edit.o delete.o write_file.o
+	del main.o company.o employee.o interval.o machine.o maintenance_plan.o menu.o add.o edit.o delete.o write_file.o show.o read_file.o

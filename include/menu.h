@@ -1,3 +1,6 @@
+#ifndef MENU_H
+#define MENU_H
+
 #include <iostream>
 #include <memory>
 #include <string>
@@ -18,3 +21,5 @@ void menu_delete (std::vector<std::shared_ptr<Company>> &companies, std::vector<
 void menu_show (std::vector<std::shared_ptr<Company>> &companies, std::vector<std::shared_ptr<Employee>> &employees, std::vector<std::shared_ptr<Interval>> &intervals, std::vector<std::shared_ptr<Stationary_machine>> stationary_machines, std::vector<std::shared_ptr<Mobile_machine>> mobile_machines, std::vector<std::shared_ptr<Maintenance_plan>> &m_plans);
 
 void menu_main (std::vector<std::shared_ptr<Company>> &companies, std::vector<std::shared_ptr<Employee>> &employees, std::vector<std::shared_ptr<Interval>> &intervals, std::vector<std::shared_ptr<Stationary_machine>> stationary_machines, std::vector<std::shared_ptr<Mobile_machine>> mobile_machines, std::vector<std::shared_ptr<Maintenance_plan>> &m_plans);
+
+#endif
