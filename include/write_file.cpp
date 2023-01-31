@@ -93,7 +93,7 @@ void write_file_stationary_machine(std::vector<std::shared_ptr<Stationary_machin
     Ausgabe << "ID;Name;Firma;Ort;" << std::endl;
     for (const auto& s : stationary_machines)
     {
-        Ausgabe << s->get_id() << ";" <<  s->get_name() <<";" << s->get_company() << ";" << s->get_location() << ";" <<std::endl;
+        Ausgabe << s->get_id() << ";" <<  s->get_name() <<";" << s->get_company()->get_id() << ";" << s->get_location() << ";" <<std::endl;
     }
   Ausgabe.close();
   }
@@ -109,7 +109,7 @@ void write_file_mobile_machine(std::vector<std::shared_ptr<Mobile_machine>> mobi
     Ausgabe << "ID;Name;Firma;Gewicht;" << std::endl;
     for (const auto& s : mobile_machines)
     {
-        Ausgabe << s->get_id() << ";" <<  s->get_name() <<";" << s->get_company() << ";" << s->get_weight() << ";" <<std::endl;
+        Ausgabe << s->get_id() << ";" <<  s->get_name() <<";" << s->get_company()->get_id() << ";" << s->get_weight() << ";" <<std::endl;
     }
   Ausgabe.close();
   }
@@ -136,7 +136,7 @@ void write_file_maintenance_plan(std::vector<std::shared_ptr<Maintenance_plan>> 
         Ausgabe << s->get_mobile_machine()->get_id() << ";" <<  s->get_mobile_machine()->get_name() <<";" << s->get_mobile_machine()->get_company() << ";" <<s->get_mobile_machine()->get_weight() << ";" <<std::endl;
 
       }
-      
+
       Ausgabe << "Intervall:" << std::endl;
       Ausgabe << "Einheit;Anzahl;" << std::endl;
       Ausgabe << s->get_interval()->get_unit() << ";" << s->get_interval()->get_number() <<";" << std::endl;
