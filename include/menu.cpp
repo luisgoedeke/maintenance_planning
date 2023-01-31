@@ -163,7 +163,7 @@ void menu_show (std::vector<std::shared_ptr<Company>> &companies, std::vector<st
     bool menu_active = true;
     
     while (menu_active){
-        std::cout << "### Anlegen ###" << std::endl;
+        std::cout << "### Anzeigen ###" << std::endl;
         std::cout << "Was moechten Sie anzeigen? Bitte geben Sie die Zahl des Menuepunktes ein." << std::endl;
         std::cout << "1 Firma" << std::endl;
         std::cout << "2 Mitarbeiter" << std::endl;
@@ -225,6 +225,7 @@ void menu_main(std::vector<std::shared_ptr<Company>> &companies, std::vector<std
         std::cout << "4 Bearbeiten" << std::endl;
         std::cout << "5 Loeschen" << std::endl;
         std::cout << "6 Anzeigen" << std::endl;
+        std::cout << "##############################" << std::endl;
         std::cout << "7 Programm beenden" << std::endl;
 
         int auswahl;
@@ -243,6 +244,7 @@ void menu_main(std::vector<std::shared_ptr<Company>> &companies, std::vector<std
             write_file_company(companies);
             write_file_mobile_machine(mobile_machines);
             write_file_stationary_machine(stationary_machines);
+            write_file_maintenance_plan(m_plans);
             
         }else if (auswahl == 3){
 

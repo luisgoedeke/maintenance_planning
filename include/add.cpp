@@ -172,7 +172,7 @@ void add_company (std::vector<std::shared_ptr<Company>> &companies){
 void add_machine (std::vector<std::shared_ptr<Company>> &companies, std::vector<std::shared_ptr<Stationary_machine>> &stationary_machines, std::vector<std::shared_ptr<Mobile_machine>> &mobile_machines){
     bool menu_active = true;
     while (menu_active){
-        std::cout << "Was für einen Typ Maschine moechten Sie anlegen?" << std::endl;
+        std::cout << "Was fuer einen Typ Maschine moechten Sie anlegen?" << std::endl;
         std::cout << "1 Stationaere Maschine" << std::endl;
         std::cout << "2 Mobile Maschine" << std::endl;
         std::cout << "3 Abbruch" << std::endl;

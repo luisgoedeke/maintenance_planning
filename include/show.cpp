@@ -84,3 +84,5 @@ void show_mobile_machines (std::vector<std::shared_ptr<Mobile_machine>> &mobile_
     }
 
 }
+
+void show_maintenance_plans (std::vector<std::shared_ptr<Maintenance_plan>> &m_plans){}

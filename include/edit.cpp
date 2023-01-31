@@ -205,8 +205,8 @@ void edit_companies (std::vector<std::shared_ptr<Company>> &companies, std::vect
 
         }else if (auswahl == 3){
             std::cout << "Was möchten Sie tun?" <<std::endl;
-            std::cout << "1 Mitarbeiter hinzufügen" << std::endl;
-            std::cout << "2 Mitarbeiter löschen" << std::endl;
+            std::cout << "1 Mitarbeiter hinzufuegen" << std::endl;
+            std::cout << "2 Mitarbeiter loeschen" << std::endl;
             std::cout << "3 Abbrechen" << std::endl;
 
             std::cin >> auswahl;

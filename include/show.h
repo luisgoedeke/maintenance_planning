@@ -22,4 +22,6 @@ void show_stationary_machines (std::vector<std::shared_ptr<Stationary_machine>> 
 
 void show_mobile_machines (std::vector<std::shared_ptr<Mobile_machine>> &mobile_machines);
 
+void show_maintenance_plans (std::vector<std::shared_ptr<Maintenance_plan>> &m_plans);
+
 #endif

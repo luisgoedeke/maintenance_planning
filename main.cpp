@@ -24,8 +24,4 @@ int main(){
     menu_main(companies, employees, intervals, stationary_machines, mobile_machines, m_plans);
 
     return 0;
-
-
-
-
 }
