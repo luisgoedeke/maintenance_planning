@@ -169,7 +169,7 @@ void read_file_stationary_machine(std::vector<std::shared_ptr<Stationary_machine
     std::string line3 = line2.substr(pos2+1);
     std::size_t pos3 = line3.find(';');
 //hier muss entweder id oder der name oder beides stehen (auch noch in write file anpassen)
-    std::string name = line3.substr(0,pos3);
+    int f_id = line3.substr(0,pos3);
 
     std::string line4 = line3.substr(pos3+1);
     std::size_t pos4 = line4.find(';');
@@ -223,22 +223,20 @@ for (int i = 3; i <= line_count; i++)
 
   std::string line3 = line2.substr(pos2+1);
   std::size_t pos3 = line3.find(';');
-//hier muss entweder id oder der name oder beides stehen (auch noch in write file anpassen)
   std::string name = line3.substr(0,pos3);
 
   std::string line4 = line3.substr(pos3+1);
   std::size_t pos4 = line4.find(';');
   int weight = std::stoi(line4.substr(0,pos4));
-//Company zuordnen
-//wahrschienlich falsch
+
 for (const auto& s : companies)
 {
-  if(name == s->getname())
+  if(f_id == s->getid())
   {
     break;
   }
 }
-std::shared_ptr<Employee> company = s;
+std::shared_ptr<Company> company = company[s]
 
   mobile_machines.push_back(std::make_shared<Mobile_machine>(id, name, company));
 
@@ -345,7 +343,7 @@ for (const auto& sm : stationary_machines)
     break;
   }
 }
-std::shared_ptr<Employee> machine = sm;
+std::shared_ptr<Machine> machine = machine[sm];
 
 for (const auto& mm : mobile_machines)
 {
@@ -354,7 +352,7 @@ for (const auto& mm : mobile_machines)
     break;
   }
 }
-std::shared_ptr<Employee> machine = mm;
+std::shared_ptr<Machine> machine = machine[mm];
 
 //Employee zuordnen
 //wahrschienlich falsch
